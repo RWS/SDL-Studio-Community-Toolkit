@@ -1,4 +1,5 @@
 Contributing to SDL Studio Community Toolkit
+=======
 
 A developer should be able to quickly and easily learn to use the API. 
 Simplicity and a low barrier to entry are must-have features of every API. If you have any second thoughts about the complexity of a design, it is almost always much better to cut the feature from the current release and spend more time to get the design right for the next release. 
