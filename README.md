@@ -12,3 +12,7 @@ NuGet is a standard package manager for .NET applications that is built into Vis
 
 ## Features
 *Coming soon*
+
+## Feedback and Requests
+
+Please use [GitHub issues](https://github.com/sdl/SDL-Studio-Community-Toolkit/issues) for questions or comments.
