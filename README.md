@@ -16,3 +16,12 @@ NuGet is a standard package manager for .NET applications that is built into Vis
 ## Feedback and Requests
 
 Please use [GitHub issues](https://github.com/sdl/SDL-Studio-Community-Toolkit/issues) for questions or comments.
+
+## Contributing
+Do you want to contribute? Here are our [contribution guidelines](https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/contributing.md).
+
+## Principles
+
+ - Principle #1: The toolkit will be kept simple.
+ - Principle #2: As soon as a comparable feature is available in the SDL Studio, it will be marked as deprecated.
+ - Principle #3: All features will be supported for the latest SDL Studio release cycles or until another principle supersedes it.
