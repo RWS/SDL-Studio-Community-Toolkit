@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Sdl.Community.Toolkit.FileType.Internal
 {
-    public class NumberTokenHelper
+    internal class NumberTokenHelper
     {
 
         public static bool IsValidFloating(string text, params char[] separators)
