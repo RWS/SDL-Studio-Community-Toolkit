@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{6C48679F-0
 		contributing.md = contributing.md
 		README.md = README.md
 		ReleaseNotes.md = ReleaseNotes.md
+		Sdl.Community.Toolkit.snk = Sdl.Community.Toolkit.snk
 		SolutionInfo.cs = SolutionInfo.cs
 	EndProjectSection
 EndProject
@@ -25,9 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CBA18C59
 		.gitignore = .gitignore
 		build.cmd = build.cmd
 		build.fsx = build.fsx
+		Sdl.Community.Toolkit.Core.nuspec = Sdl.Community.Toolkit.Core.nuspec
 		Sdl.Community.Toolkit.FileType.nuspec = Sdl.Community.Toolkit.FileType.nuspec
 		Sdl.Community.Toolkit.Integration.nuspec = Sdl.Community.Toolkit.Integration.nuspec
-		Sdl.Community.Toolkit.Core.nuspec = Sdl.Community.Toolkit.Core.nuspec
 		Sdl.Community.Toolkit.ProjectAutomation.nuspec = Sdl.Community.Toolkit.ProjectAutomation.nuspec
 	EndProjectSection
 EndProject

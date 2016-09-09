@@ -12,3 +12,7 @@
 ### New in 0.4.0
 
 * DisplayRowInfo.IsAuthorFoundInComment was not marked as an extension method
+
+### New in 0.5.0
+
+* Strong sign the toolkit
