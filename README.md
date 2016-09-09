@@ -6,7 +6,7 @@ The SDL Studio Community Toolkit is a collection of helper functions. It simplif
 
 * .NET 4.5 (Desktop / Server)
 * Windows 7 / 8 / 8.1 /10 Store Apps
-* SDL Studio 2017
+* SDL Studio 2017 or later
 
 ## Getting started
 
