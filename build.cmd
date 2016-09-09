@@ -5,7 +5,7 @@ nuget restore
 :Build
 
 
-SET TARGET="Default"
+SET TARGET="BuildApp"
 
 IF NOT [%1]==[] (set TARGET="%1")
 
@@ -13,12 +13,8 @@ SET BUILDMODE="RELEASE"
 
 IF NOT [%2]==[] (set BUILDMODE="%2")
 
-if %TARGET%=="Default" (SET RunBuild=1)
+if %TARGET%=="BuildApp" (SET RunBuild=1)
 if %TARGET%=="CreatePackages" (SET RunBuild=1)
-
-if NOT "%RunBuild%"=="" (
-"tools\FAKE.Core\tools\Fake.exe" "build.fsx" "target=BuildApp" "buildMode=%BUILDMODE%"
-)
 
 "tools\FAKE.Core\tools\Fake.exe" "build.fsx" "target=%TARGET%" "buildMode=%BUILDMODE%"
 

@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sdl.Community.Toolkit.Integration.Extensions
+namespace Sdl.Community.Toolkit.Integration
 {
     public static class DocumentExtensions
     {
