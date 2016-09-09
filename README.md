@@ -29,6 +29,8 @@ using Sdl.Community.Toolkit.Integration
 
 NuGet is a standard package manager for .NET applications that is built into Visual Studio. From your open solution choose the *Tools* menu, *NuGet Package Manager*, *Manage NuGet packages for solution...* to open the UI.  Enter one of the package names below to search for it online.
 
+![Community Toolkit Nuget packages](https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/Resources/nuget-packages.png)
+
 ## Features
 * Helper functions for working with FileTypeSupport Framework
 * Helper functions for working with ProjectAutomation API
