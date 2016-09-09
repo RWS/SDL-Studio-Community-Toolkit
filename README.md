@@ -16,6 +16,9 @@ This libraries are build on top of SDL Studio APIs and thus using them also requ
 
 2. Open the solution for an existing SDL Studio plugin or create a new one.
 
+3. In Solution Explorer panel, right click on your project name and select **Manage NuGet packages**. Search for **Sdl.Community.Toolkit**, and choose your desired [NuGet Packages](https://www.nuget.org/packages?q=Sdl.Community.Toolkit) from the list.
+
+![Manage Nuget packages](https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/Resources/ManageNugetPackages.png)
 
 4. In your C# class, add the namespaces to the toolkit, for example:
 
