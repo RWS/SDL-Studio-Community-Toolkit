@@ -90,7 +90,7 @@ namespace Sdl.Community.Toolkit.Integration
             return success;
         }
 
-        public static bool IsAuthorFoundInComment(DisplayFilterRowInfo rowInfo,
+        public static bool IsAuthorFoundInComment(this DisplayFilterRowInfo rowInfo,
             DisplayFilterSettings settings)
         {
             var success = rowInfo.SegmentPair.Target.GetComments()
@@ -268,6 +268,7 @@ namespace Sdl.Community.Toolkit.Integration
 
             return success;
         }
+
         public static bool IsSegmentContentTypeExcludingNumberOnly(this DisplayFilterRowInfo rowInfo,
             DisplayFilterSettings settings)
         {
@@ -328,6 +329,8 @@ namespace Sdl.Community.Toolkit.Integration
             return success;
         }
 
+
+
         private static bool RegularExpressionMatch(string searchFor, string searchIn, bool isCaseSensitive)
         {
             var regex = new Regex(searchFor,
@@ -343,5 +346,7 @@ namespace Sdl.Community.Toolkit.Integration
 
             return searchIn.IndexOf(searchFor, StringComparison.OrdinalIgnoreCase) > -1 ? true : false;
         }
+
+
     }
 }
