@@ -16,3 +16,7 @@
 ### New in 0.5.0
 
 * Strong sign the toolkit
+
+### New in 0.5.1
+
+* Updated GetStudioVersion to work on major version only

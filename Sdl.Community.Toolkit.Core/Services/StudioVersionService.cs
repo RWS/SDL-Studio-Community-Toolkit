@@ -88,11 +88,18 @@ namespace Sdl.Community.Toolkit.Core.Services
                         "SDLTradosStudio.exe"));
             var versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             var currentVersion = new Version(versionInfo.FileVersion);
+            var installedStudioVersion = _installedStudioVersions.
+                    Find(x => x.ExecutableVersion.MajorRevision.Equals(currentVersion.MajorRevision));
 
-            var currentStudioVersion = _installedStudioVersions.
-                Find(x => x.ExecutableVersion.Equals(currentVersion));
+            var studioVersion = new StudioVersion
+            {
+                InstallPath = assembly.Location,
+                Version = installedStudioVersion.Version,
+                PublicVersion = installedStudioVersion.PublicVersion,
+                ExecutableVersion = currentVersion
+            };
 
-            return currentStudioVersion;
+            return studioVersion;
 
         }
     }
