@@ -51,6 +51,9 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="MultiTerm.cs" />
+    <Compile Include="MultiTermVersion.cs" />
+    <Compile Include="Services\MultiTermVersionService.cs" />
     <Compile Include="Services\StudioVersionService.cs" />
     <Compile Include="Studio.cs" />
     <Compile Include="StudioVersion.cs" />
