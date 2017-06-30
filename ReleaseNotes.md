@@ -20,3 +20,11 @@
 ### New in 0.5.1
 
 * Updated GetStudioVersion to work on major version only
+
+### New in 0.6.0
+
+* Added Helper functions for handling SDL MultiTerm
+
+### New in 0.6.1
+
+* Fixed Helper function for SDL Multiterm

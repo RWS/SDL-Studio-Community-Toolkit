@@ -11,15 +11,13 @@ namespace Sdl.Community.Toolkit.Core.Services
 {
     public class MultiTermVersionService
     {
-        private const string InstallLocation64Bit = @"SOFTWARE\Wow6432Node\SDL\";
-        private const string InstallLocation32Bit = @"SOFTWARE\SDL";
+        private const string InstallLocation64Bit = @"SOFTWARE\Wow6432Node\SDL\MTCore14\Installer\";
+        private const string InstallLocation32Bit = @"SOFTWARE\SDL\MTCore14\Installer\";
 
 
         private readonly Dictionary<string, string> _supportedMultiTermVersions = new Dictionary<string, string>
         {
-            {"MultiTerm11", "SDL MultiTerm 2014"},
-            {"MultiTerm12", "SDL MultiTerm 2015"},
-            {"MultiTerm14", "SDL MultiTerm 2017"},
+            {"MultiTerm17", "SDL MultiTerm 2017"},
         };
         private readonly List<MultiTermVersion> _installedMultiTermVersions;
 
@@ -37,13 +35,13 @@ namespace Sdl.Community.Toolkit.Core.Services
             if (sdlRegistryKey == null) return;
             foreach (var supportedMultiTermVersion in _supportedMultiTermVersions)
             {
-                FindAndCreateMultiTermVersion(registryPath, supportedMultiTermVersion.Key, supportedMultiTermVersion.Value);
+                FindAndCreateMultiTermVersion(supportedMultiTermVersion.Key, supportedMultiTermVersion.Value);
             }
         }
 
-        private void FindAndCreateMultiTermVersion(string registryPath, string multiTermVersion, string multiTermPublicVersion)
+        private void FindAndCreateMultiTermVersion(string multiTermVersion, string multiTermPublicVersion)
         {
-            var multiTermKey = Registry.LocalMachine.OpenSubKey(string.Format(@"{0}\{1}", registryPath, multiTermVersion));
+            var multiTermKey = Registry.LocalMachine.OpenSubKey(string.Format(@"{0}\{1}", @"SOFTWARE\Wow6432Node\SDL\MTCore14\Installer\", "PersistedProperties"));
             if (multiTermKey != null)
             {
                 CreateMultiTermVersion(multiTermKey, multiTermVersion, multiTermPublicVersion);
@@ -52,7 +50,7 @@ namespace Sdl.Community.Toolkit.Core.Services
 
         private void CreateMultiTermVersion(RegistryKey multiTermKey, string version, string publicVersion)
         {
-            var installLocation = multiTermKey.GetValue("InstallLocation").ToString();
+            var installLocation = multiTermKey.GetValue("CoreINSTALLDIR").ToString();
             var fullVersion = GetMultiTermFullVersion(installLocation);
 
 
