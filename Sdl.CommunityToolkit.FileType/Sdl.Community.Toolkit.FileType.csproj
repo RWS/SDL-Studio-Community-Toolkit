@@ -59,6 +59,8 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="Extensions\CustomTextCollectionVisitor.cs" />
+    <Compile Include="Extensions\EditDistance.cs" />
     <Compile Include="Extensions\SegmentExtensions.cs" />
     <Compile Include="Extensions\SegmentPairExtensions.cs" />
     <Compile Include="Extensions\TranslatorOriginExtensions.cs" />

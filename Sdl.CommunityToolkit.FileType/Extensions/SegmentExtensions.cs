@@ -86,22 +86,11 @@ namespace Sdl.Community.Toolkit.FileType
 
         public static void Replace(this ISegment segment, int startIndex, int endPosition, string replacementText)
         {
-            var counter = segment.GetCharacterCountingIterator(startIndex);
-            if (counter.CharacterCount < startIndex)
-            {
-                // the actual count is between this location and the next
-                //  - if this is a text node we can point to the exact location inside the text
-                IText text = counter.CurrentLocation.ItemAtLocation as IText;
-                if (text != null)
-                {
-                    var startLocationInsideTextItem = new TextLocation(counter.CurrentLocation, startIndex - counter.CharacterCount);
-                    var sb = new StringBuilder(text.Properties.Text);
-                    sb.Remove(startIndex, endPosition - startIndex);
-                    sb.Insert(startIndex, replacementText);
-                    text.Properties.Text = sb.ToString();
+            var textVisitor = new CustomTextCollectionVisitor(segment, startIndex, endPosition);
+            foreach (var item in segment)
+                item.AcceptVisitor(textVisitor);
 
-                }
-            }
+            textVisitor.ReplaceText(replacementText);
         }
 
         private static CharacterCountingIterator GetCharacterCountingIterator(this ISegment segment, int startIndex)
@@ -122,6 +111,12 @@ namespace Sdl.Community.Toolkit.FileType
             }
             counter.MovePrevious();
             return counter;
+        }
+
+        public static int GetSegmentEditDistance(this ISegment segment, string replacementText)
+        {
+            var textSegment = segment.GetString();
+            return LevenshteinDistance.Calculate(textSegment, replacementText);
         }
     }
 }

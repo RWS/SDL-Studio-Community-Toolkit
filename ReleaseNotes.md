@@ -28,3 +28,7 @@
 ### New in 0.6.1
 
 * Fixed Helper function for SDL Multiterm
+
+### New in 0.7
+
+* Added methods for Segment objects

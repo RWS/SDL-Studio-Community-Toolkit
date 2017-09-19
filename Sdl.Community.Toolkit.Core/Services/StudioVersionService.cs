@@ -54,17 +54,19 @@ namespace Sdl.Community.Toolkit.Core.Services
 
         private void CreateStudioVersion(RegistryKey studioKey, string version, string publicVersion)
         {
-            var installLocation = studioKey.GetValue("InstallLocation").ToString();
-            var fullVersion = GetStudioFullVersion(installLocation);
-
-
-            _installedStudioVersions.Add(new StudioVersion()
+            if (studioKey.GetValue("InstallLocation") != null)
             {
-                Version = version,
-                PublicVersion = publicVersion,
-                InstallPath = installLocation,
-                ExecutableVersion = new Version(fullVersion)
-            });
+                var installLocation = studioKey.GetValue("InstallLocation").ToString();
+                var fullVersion = GetStudioFullVersion(installLocation);
+
+                _installedStudioVersions.Add(new StudioVersion()
+                {
+                    Version = version,
+                    PublicVersion = publicVersion,
+                    InstallPath = installLocation,
+                    ExecutableVersion = new Version(fullVersion)
+                });
+            }
         }
 
         private static string GetStudioFullVersion(string installLocation)
