@@ -68,6 +68,7 @@
     <Compile Include="EnvironmentConstants.cs" />
     <Compile Include="EnvironmentPaths.cs" />
     <Compile Include="Model\TokenizedSegment.cs" />
+    <Compile Include="Model\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\SegmentVisitor.cs" />
     <Compile Include="Tokenizer.cs" />

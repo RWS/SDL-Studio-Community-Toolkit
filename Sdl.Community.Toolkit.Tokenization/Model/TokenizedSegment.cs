@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sdl.LanguagePlatform.Core;
-using Sdl.LanguagePlatform.TranslationMemory;
+﻿using Sdl.LanguagePlatform.Core;
 
 namespace Sdl.Community.Toolkit.Tokenization.Model
 {

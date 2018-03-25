@@ -113,7 +113,7 @@ namespace Sdl.Community.Toolkit.Tokenization
             {
                 result.SourceSegment = searchResult.MemoryTranslationUnit.SourceSegment;
                 result.TargetSegment = searchResult.MemoryTranslationUnit.TargetSegment;
-                result.SourceWordCounts = new WordCounts
+                result.SourceWordCounts = new Model.WordCounts
                 {
                     Words = searchResults.SourceWordCounts.Words,
                     Characters = searchResults.SourceWordCounts.Characters,
