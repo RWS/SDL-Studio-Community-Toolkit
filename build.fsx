@@ -129,6 +129,29 @@ Target "CreateProjectAutomationPackage" (fun _ ->
             Publish = hasBuildParam "nugetkey" }) "Sdl.Community.Toolkit.ProjectAutomation.nuspec"
 )
 
+Target "CreateTokenizationPackage" (fun _ ->
+    let portableDir = packagingDir @@ "lib/net45/"
+    CleanDirs [portableDir]
+
+    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Tokenization.dll")
+    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Tokenization.XML")
+    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Tokenization.pdb")
+    CopyFiles packagingDir ["LICENSE"; "README.md"; "ReleaseNotes.md"]
+
+    NuGet (fun p -> 
+        {p with
+            Authors = authors
+            Project = "Sdl.Community.Toolkit.Tokenization"
+            Description = projectDescription
+            OutputPath = packagingRoot
+            Summary = projectSummary
+            WorkingDir = packagingDir
+            Version = releaseNotes.AssemblyVersion
+            ReleaseNotes = toLines releaseNotes.Notes
+            AccessKey = getBuildParamOrDefault "nugetkey" ""
+            Publish = hasBuildParam "nugetkey" }) "Sdl.Community.Toolkit.Tokenization.nuspec"
+)
+
 Target "CreateIntegrationPackage" (fun _ ->
     let portableDir = packagingDir @@ "lib/net45/"
     CleanDirs [portableDir]
@@ -160,6 +183,7 @@ Target "BuildAndCreatePackages" DoNothing
 "CreateCorePackage"
     ==> "CreateFileTypePackage"
     ==> "CreateProjectAutomationPackage"
+    ==> "CreateTokenizationPackage"
     ==> "CreateIntegrationPackage"
     ==>"CreatePackages"
 

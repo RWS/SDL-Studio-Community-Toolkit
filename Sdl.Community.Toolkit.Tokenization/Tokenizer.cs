@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.IO;
 using Sdl.Community.Toolkit.Tokenization.Model;
 using Sdl.Community.Toolkit.Tokenization.Reader;
@@ -7,155 +8,163 @@ using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.Core.Tokenization;
 using Sdl.LanguagePlatform.TranslationMemory;
 using Sdl.LanguagePlatform.TranslationMemoryApi;
+using Action = Sdl.LanguagePlatform.TranslationMemory.Action;
 
 namespace Sdl.Community.Toolkit.Tokenization
 {
-    public class Tokenizer
-    {
-        public FileBasedTranslationMemory MyTemporaryTm { get; private set; }
+	public class Tokenizer
+	{
+		private readonly EnvironmentPaths _environmentPaths;
 
-        private readonly EnvironmentPaths _environmentPaths;
+		private readonly FileBasedTranslationMemory _temporaryTm;
 
-        private CultureInfo SourceCultureInfo { get; }
-        private CultureInfo TargetCultureInfo { get; }
+		private CultureInfo SourceCultureInfo { get; }
 
-        public Tokenizer(CultureInfo sourceCultureInfo, CultureInfo targetCultureInfo)
-        {
-            _environmentPaths = new EnvironmentPaths(EnvironmentConstants.ProductName);
-            SourceCultureInfo = sourceCultureInfo;
-            TargetCultureInfo = targetCultureInfo;
-        }
+		private CultureInfo TargetCultureInfo { get; }
 
-        public TokenizedSegment TokenizeSegment(ISegmentPair segmentPair)
-        {
-            return TokenizeSegment(SegmentVisitor(segmentPair.Source, MyTemporaryTm.LanguageDirection.SourceLanguage).Segment,
-                SegmentVisitor(segmentPair.Target, MyTemporaryTm.LanguageDirection.TargetLanguage).Segment);
-        }
+		public Tokenizer(CultureInfo sourceCultureInfo, CultureInfo targetCultureInfo, EnvironmentPaths environmentPaths)
+		{
+			SourceCultureInfo = sourceCultureInfo;
+			TargetCultureInfo = targetCultureInfo;
 
-        public TokenizedSegment TokenizeSegment(Segment sourceSegment, Segment targetSegment)
-        {
-            if (sourceSegment.Elements.Count == 0)
-            {
-                return null;
-            }
+			_environmentPaths = environmentPaths;
 
-            if (targetSegment.Elements.Count == 0)
-            {
-                targetSegment.Elements.AddRange(sourceSegment.Elements);
-            }
+			_temporaryTm = CreateTranslationMemory();
+		}
 
-            var tuImport = AddTranslationUnit(sourceSegment, targetSegment);
+		public TokenizedSegment TokenizeSegment(ISegmentPair segmentPair)
+		{
+			return TokenizeSegment(SegmentVisitor(segmentPair.Source, _temporaryTm.LanguageDirection.SourceLanguage).Segment,
+				SegmentVisitor(segmentPair.Target, _temporaryTm.LanguageDirection.TargetLanguage).Segment);
+		}
 
-            var searchResults = MyTemporaryTm?.LanguageDirection.SearchSegment(GetSearchSettings(), sourceSegment);
+		public TokenizedSegment TokenizeSegment(Segment sourceSegment, Segment targetSegment)
+		{
+			if (sourceSegment.Elements.Count == 0)
+			{
+				return null;
+			}
 
-            MyTemporaryTm?.LanguageDirection.DeleteTranslationUnit(tuImport.TuId);
+			if (targetSegment.Elements.Count == 0)
+			{
+				targetSegment.Elements.AddRange(sourceSegment.Elements);
+			}
 
-            return GeTokenizedSegmentResult(searchResults);
-        }
+			var tuImport = AddTranslationUnit(sourceSegment, targetSegment);
 
-        public bool CreateTranslationMemory()
-        {
-            var tmName = "TM." + SourceCultureInfo.Name + "-" + TargetCultureInfo.Name + ".sdltm";
-            var tmPath = Path.Combine(_environmentPaths.MyTmPath, tmName);
+			var searchResults = _temporaryTm?.LanguageDirection.SearchSegment(GetSearchSettings(), sourceSegment);
 
-            if (File.Exists(tmPath))
-            {
-                MyTemporaryTm = new FileBasedTranslationMemory(tmPath);
-                return false;
-            }
+			_temporaryTm?.LanguageDirection.DeleteTranslationUnit(tuImport.TuId);
 
-            MyTemporaryTm = new FileBasedTranslationMemory(tmPath
-                , "Temporary TM"
-                , SourceCultureInfo
-                , TargetCultureInfo
-                , FuzzyIndexes.SourceWordBased
-                , BuiltinRecognizers.RecognizeAll
-                , TokenizerFlags.DefaultFlags
-                , WordCountFlags.DefaultFlags
-                , false);
-            MyTemporaryTm.FieldDefinitions.Add(new FieldDefinition("FileIndex", FieldValueType.Integer));
-            MyTemporaryTm.Save();
+			return GeTokenizedSegmentResult(searchResults);
+		}
 
-            return true;
-        }
+		private FileBasedTranslationMemory CreateTranslationMemory()
+		{
+			var tmPath = GetTemporaryTmPath();
 
-        public void DeleteTranslationMemory()
-        {
-            try
-            {
-                if (File.Exists(MyTemporaryTm.FilePath))
-                    File.Delete(MyTemporaryTm.FilePath);
-            }
-            catch
-            {
-                // catch all
-            }
-        }
+			if (File.Exists(tmPath))
+			{
+				return new FileBasedTranslationMemory(tmPath);
+			}
 
-        private static SegmentVisitor SegmentVisitor(ISegment seg, CultureInfo culture)
-        {
-            var segment = new Segment(culture);
+			var temporaryTm = new FileBasedTranslationMemory(tmPath
+				, "Temporary TM"
+				, SourceCultureInfo
+				, TargetCultureInfo
+				, FuzzyIndexes.SourceWordBased
+				, BuiltinRecognizers.RecognizeAll
+				, TokenizerFlags.DefaultFlags
+				, WordCountFlags.DefaultFlags
+				, false);
+			temporaryTm.FieldDefinitions.Add(new FieldDefinition("FileIndex", FieldValueType.Integer));
+			temporaryTm.Save();
 
-            var visitor = new SegmentVisitor(segment, false);
+			return temporaryTm;
 
-            visitor.VisitSegment(seg);
+		}
 
-            return visitor;
-        }
+		private string GetTemporaryTmPath()
+		{
+			var tmName = "TM." + SourceCultureInfo.Name + "-" + TargetCultureInfo.Name + ".sdltm";
+			var tmPath = Path.Combine(_environmentPaths.MyTmPath, tmName);
+			return tmPath;
+		}
 
-        private TokenizedSegment GeTokenizedSegmentResult(SearchResults searchResults)
-        {
-            var result = new TokenizedSegment();
+		private ImportResult AddTranslationUnit(Segment sourceSegment, Segment targetSegment)
+		{
+			if (_temporaryTm == null)
+			{
+				throw new Exception($"Unable to locate the temporary TM: {GetTemporaryTmPath()}");
+			}
 
-            var searchResult = searchResults?.Results?[0];
+			var unit = new TranslationUnit(sourceSegment, targetSegment);
 
-            if (searchResult != null)
-            {
-                result.SourceSegment = searchResult.MemoryTranslationUnit.SourceSegment;
-                result.TargetSegment = searchResult.MemoryTranslationUnit.TargetSegment;
-                result.SourceWordCounts = new Model.WordCounts
-                {
-                    Words = searchResults.SourceWordCounts.Words,
-                    Characters = searchResults.SourceWordCounts.Characters,
-                    Tags = searchResults.SourceWordCounts.Tags,
-                    Placeables = searchResults.SourceWordCounts.Placeables
-                };
-            }
+			var tuResult = _temporaryTm.LanguageDirection.AddTranslationUnit(
+				unit, GetImportSettings());
 
-            return result;
-        }
+			if (tuResult.Action == Action.Error)
+			{
+				throw new Exception($"Unable to add TU to the temporary TM: {GetTemporaryTmPath()}");
+			}
 
-        private ImportResult AddTranslationUnit(Segment sourceSegment, Segment targetSegment)
-        {
-            var unit = new TranslationUnit(sourceSegment, targetSegment);
+			return tuResult;
+		}
 
-            var tuResult = MyTemporaryTm.LanguageDirection.AddTranslationUnit(
-                unit, GetImportSettings());
+		private static SegmentVisitor SegmentVisitor(ISegment seg, CultureInfo culture)
+		{
+			var segment = new Segment(culture);
 
-            return tuResult;
-        }
+			var visitor = new SegmentVisitor(segment, false);
 
-        private static SearchSettings GetSearchSettings()
-        {
-            var settings = new SearchSettings
-            {
-                MaxResults = 1,
-                MinScore = 100,
-                Mode = SearchMode.ExactSearch,
-                Penalties = null,
-                Filters = null,
-                ComputeTranslationProposal = false
-            };
-            return settings;
-        }
+			visitor.VisitSegment(seg);
 
-        private static ImportSettings GetImportSettings()
-        {
-            var settings = new ImportSettings
-            {
-                ExistingTUsUpdateMode = ImportSettings.TUUpdateMode.Overwrite
-            };
-            return settings;
-        }
-    }
+			return visitor;
+		}
+
+		private static TokenizedSegment GeTokenizedSegmentResult(SearchResults searchResults)
+		{
+			var result = new TokenizedSegment();
+
+			var searchResult = searchResults?.Results?[0];
+
+			if (searchResult != null)
+			{
+				result.SourceSegment = searchResult.MemoryTranslationUnit.SourceSegment;
+				result.TargetSegment = searchResult.MemoryTranslationUnit.TargetSegment;
+				result.SourceWordCounts = new Model.WordCounts
+				{
+					Words = searchResults.SourceWordCounts.Words,
+					Characters = searchResults.SourceWordCounts.Characters,
+					Tags = searchResults.SourceWordCounts.Tags,
+					Placeables = searchResults.SourceWordCounts.Placeables
+				};
+			}
+
+			return result;
+		}
+
+		private static SearchSettings GetSearchSettings()
+		{
+			var settings = new SearchSettings
+			{
+				MaxResults = 1,
+				MinScore = 100,
+				Mode = SearchMode.ExactSearch,
+				Penalties = null,
+				Filters = null,
+				ComputeTranslationProposal = false
+			};
+			return settings;
+		}
+
+		private static ImportSettings GetImportSettings()
+		{
+			var settings = new ImportSettings
+			{
+				ExistingTUsUpdateMode = ImportSettings.TUUpdateMode.Overwrite
+			};
+			return settings;
+		}
+	}
 }
