@@ -72,7 +72,7 @@
     <Compile Include="TranslationMemory\Model\SegmentPairInfo.cs" />
     <Compile Include="TranslationMemory\Model\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TranslationMemory\Reader\SegmentVisitor.cs" />
+    <Compile Include="Visitors\SegmentVisitor.cs" />
     <Compile Include="TranslationMemory\SegmentPairProcessor.cs" />
   </ItemGroup>
   <ItemGroup>

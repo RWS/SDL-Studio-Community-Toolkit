@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.IO;
 using Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Model;
-using Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Reader;
+using Sdl.Community.Toolkit.LanguagePlatform.Visitors;
 using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;

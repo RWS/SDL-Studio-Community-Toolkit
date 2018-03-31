@@ -3,7 +3,7 @@ using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.FileTypeSupport.Framework.NativeApi;
 using Sdl.LanguagePlatform.Core;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Reader
+namespace Sdl.Community.Toolkit.LanguagePlatform.Visitors
 {
 	internal class SegmentVisitor : IMarkupDataVisitor
 	{
@@ -11,10 +11,10 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Reader
 		private int TagId { get; set; }
 
 		public bool HasRevisions { get; private set; }
-		public Segment Segment { get; }
+		public Sdl.LanguagePlatform.Core.Segment Segment { get; }
 		public List<IComment> Comments { get; set; }
 
-		public SegmentVisitor(Segment segment, bool ignoreTags)
+		public SegmentVisitor(Sdl.LanguagePlatform.Core.Segment segment, bool ignoreTags)
 		{
 			Segment = segment;
 			IgnoreTags = ignoreTags;
