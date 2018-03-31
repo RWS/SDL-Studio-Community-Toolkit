@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Model
+namespace Sdl.Community.Toolkit.LanguagePlatform.Models
 {
 	/// <summary>
 	/// Environment path info

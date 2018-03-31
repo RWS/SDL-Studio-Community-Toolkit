@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Model;
+using Sdl.Community.Toolkit.LanguagePlatform.Models;
 using Sdl.Community.Toolkit.LanguagePlatform.Visitors;
 using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
 using Sdl.LanguagePlatform.TranslationMemoryApi;
 using Action = Sdl.LanguagePlatform.TranslationMemory.Action;
+using WordCounts = Sdl.Community.Toolkit.LanguagePlatform.Models.WordCounts;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory
+namespace Sdl.Community.Toolkit.LanguagePlatform
 {
 	/// <summary>
 	/// The SegmentPair processer offers the possiblity to recover additional information from the ISegmentPair (FileTypeSupport.Framework)
@@ -189,7 +190,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory
 			{
 				result.SourceSegment = searchResult.MemoryTranslationUnit.SourceSegment;
 				result.TargetSegment = searchResult.MemoryTranslationUnit.TargetSegment;
-				result.SourceWordCounts = new Model.WordCounts
+				result.SourceWordCounts = new WordCounts
 				{
 					Words = searchResults.SourceWordCounts.Words,
 					Characters = searchResults.SourceWordCounts.Characters,

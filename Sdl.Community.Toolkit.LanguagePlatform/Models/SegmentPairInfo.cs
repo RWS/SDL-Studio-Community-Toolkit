@@ -1,6 +1,6 @@
 ﻿using Sdl.LanguagePlatform.Core;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Model
+namespace Sdl.Community.Toolkit.LanguagePlatform.Models
 {
 	/// <summary>
 	/// SegmentPair info

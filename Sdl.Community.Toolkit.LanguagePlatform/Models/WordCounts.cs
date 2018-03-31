@@ -1,4 +1,4 @@
-﻿namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Model
+﻿namespace Sdl.Community.Toolkit.LanguagePlatform.Models
 {
 	//
 	// Summary:

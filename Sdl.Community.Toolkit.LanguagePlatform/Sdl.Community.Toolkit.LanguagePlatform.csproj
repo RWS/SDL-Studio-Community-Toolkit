@@ -66,14 +66,14 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="TranslationMemory\EnvironmentConstants.cs" />
-    <Compile Include="TranslationMemory\Model\PathInfo.cs" />
-    <Compile Include="TranslationMemory\Model\Settings.cs" />
-    <Compile Include="TranslationMemory\Model\SegmentPairInfo.cs" />
-    <Compile Include="TranslationMemory\Model\WordCounts.cs" />
+    <Compile Include="EnvironmentConstants.cs" />
+    <Compile Include="Models\PathInfo.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\SegmentPairInfo.cs" />
+    <Compile Include="Models\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Visitors\SegmentVisitor.cs" />
-    <Compile Include="TranslationMemory\SegmentPairProcessor.cs" />
+    <Compile Include="SegmentPairProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Sdl.Community.Toolkit.snk" />

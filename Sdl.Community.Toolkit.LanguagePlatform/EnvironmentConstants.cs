@@ -1,4 +1,4 @@
-﻿namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory
+﻿namespace Sdl.Community.Toolkit.LanguagePlatform
 {
 	/// <summary>
 	/// 
