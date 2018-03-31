@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CBA18C59
 		Sdl.Community.Toolkit.FileType.nuspec = Sdl.Community.Toolkit.FileType.nuspec
 		Sdl.Community.Toolkit.Integration.nuspec = Sdl.Community.Toolkit.Integration.nuspec
 		Sdl.Community.Toolkit.ProjectAutomation.nuspec = Sdl.Community.Toolkit.ProjectAutomation.nuspec
-		Sdl.Community.Toolkit.Tokenization.nuspec = Sdl.Community.Toolkit.Tokenization.nuspec
+		Sdl.Community.Toolkit.LanguagePlatform.nuspec = Sdl.Community.Toolkit.LanguagePlatform.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{E4FF7B58-C357-4E39-AC71-FAAE821F77BC}"
@@ -39,7 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		Resources\nuget-packages.png = Resources\nuget-packages.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.Tokenization", "Sdl.Community.Toolkit.Tokenization\Sdl.Community.Toolkit.Tokenization.csproj", "{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.LanguagePlatform", "Sdl.Community.Toolkit.LanguagePlatform\Sdl.Community.Toolkit.LanguagePlatform.csproj", "{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
