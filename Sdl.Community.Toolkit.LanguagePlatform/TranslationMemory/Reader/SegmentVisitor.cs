@@ -3,7 +3,7 @@ using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.FileTypeSupport.Framework.NativeApi;
 using Sdl.LanguagePlatform.Core;
 
-namespace Sdl.Community.Toolkit.Tokenization.Reader
+namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Reader
 {
 	internal class SegmentVisitor : IMarkupDataVisitor
 	{

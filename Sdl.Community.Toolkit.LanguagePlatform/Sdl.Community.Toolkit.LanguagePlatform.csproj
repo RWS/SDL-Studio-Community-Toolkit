@@ -7,8 +7,8 @@
     <ProjectGuid>{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sdl.Community.Toolkit.Tokenization</RootNamespace>
-    <AssemblyName>Sdl.Community.Toolkit.Tokenization</AssemblyName>
+    <RootNamespace>Sdl.Community.Toolkit.LanguagePlatform</RootNamespace>
+    <AssemblyName>Sdl.Community.Toolkit.LanguagePlatform</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Sdl.Community.Toolkit.Tokenization.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Sdl.Community.Toolkit.LanguagePlatform.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -66,13 +66,14 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="EnvironmentConstants.cs" />
-    <Compile Include="EnvironmentPaths.cs" />
-    <Compile Include="Model\TokenizedSegment.cs" />
-    <Compile Include="Model\WordCounts.cs" />
+    <Compile Include="TranslationMemory\EnvironmentConstants.cs" />
+    <Compile Include="TranslationMemory\Model\PathInfo.cs" />
+    <Compile Include="TranslationMemory\Model\Settings.cs" />
+    <Compile Include="TranslationMemory\Model\SegmentPairInfo.cs" />
+    <Compile Include="TranslationMemory\Model\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reader\SegmentVisitor.cs" />
-    <Compile Include="Tokenizer.cs" />
+    <Compile Include="TranslationMemory\Reader\SegmentVisitor.cs" />
+    <Compile Include="TranslationMemory\SegmentPairProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Sdl.Community.Toolkit.snk" />

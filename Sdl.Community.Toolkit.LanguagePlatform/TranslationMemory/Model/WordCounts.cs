@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sdl.Community.Toolkit.Tokenization.Model
+﻿namespace Sdl.Community.Toolkit.LanguagePlatform.TranslationMemory.Model
 {
-    public class WordCounts
+	//
+	// Summary:
+	//     Gets or sets the source word counts for this instance.
+	public class WordCounts
     {
         //
         // Summary:
