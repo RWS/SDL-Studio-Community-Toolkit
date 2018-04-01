@@ -45,7 +45,7 @@ NuGet is a standard package manager for .NET applications that is built into Vis
 ## Features
 * Helper functions for working with FileTypeSupport Framework
 * Helper functions for working with ProjectAutomation API
-* Helper functions for workign with LanguagePlatform
+* Helper functions for working with LanguagePlatform
 * Helper functions for working with Integration API
 * Helper functions for handling SDL Studio versioning
 
