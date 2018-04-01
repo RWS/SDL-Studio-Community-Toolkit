@@ -1,7 +1,7 @@
 ﻿namespace Sdl.Community.Toolkit.LanguagePlatform
 {
 	/// <summary>
-	/// 
+	/// Environment Constants
 	/// </summary>
 	public class EnvironmentConstants
 	{
