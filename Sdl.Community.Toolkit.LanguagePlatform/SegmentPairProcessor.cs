@@ -145,10 +145,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 
 			return tmPath;
 		}
-
-		//
-		// Summary:
-		//     Encapsulates information about the result of an import operation.
+		
 		private ImportResult AddTranslationUnit(Segment sourceSegment, Segment targetSegment)
 		{
 			if (_temporaryTm == null)
@@ -221,7 +218,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 
 		//
 		// Summary:
-		//     Represents a group of settings which control the way the import is executed.
+		//     Represents a group of settings that control the way the import is executed.
 		private static ImportSettings GetImportSettings()
 		{
 			var settings = new ImportSettings
