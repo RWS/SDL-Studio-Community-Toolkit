@@ -131,13 +131,13 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 		{
 			var tmName = _pathInfo.TmName;
 
-			if (_pathInfo.TmName.Contains("[SourceLanguageName]"))
+			if (tmName.Contains("[SourceLanguageName]"))
 			{
-				tmName = _pathInfo.TmName.Replace("[SourceLanguageName]", _settings.SourceLanguage.Name);
+				tmName = tmName.Replace("[SourceLanguageName]", _settings.SourceLanguage.Name);
 			}
-			if (_pathInfo.TmName.Contains("[TargetLanguageName]"))
+			if (tmName.Contains("[TargetLanguageName]"))
 			{
-				tmName = _pathInfo.TmName.Replace("[TargetLanguageName]", _settings.TargetLanguage.Name);
+				tmName = tmName.Replace("[TargetLanguageName]", _settings.TargetLanguage.Name);
 			}
 
 			var tmPath = Path.Combine(_pathInfo.TmPath, tmName);
