@@ -140,7 +140,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 				tmName = tmName.Replace("[TargetLanguageName]", _settings.TargetLanguage.Name);
 			}
 
-			var tmPath = Path.Combine(_pathInfo.TmPath, tmName);
+			var tmPath = Path.Combine(_pathInfo.TemporaryResourcesPath, tmName);
 
 
 			return tmPath;
