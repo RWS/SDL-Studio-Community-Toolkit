@@ -18,8 +18,7 @@ namespace Sdl.Community.Toolkit.Core.Services
 			{"Studio3", "SDL Studio 2014"},
 			{"Studio4", "SDL Studio 2015"},
 			{"Studio5", "SDL Studio 2017"},
-			{"Studio15", "SDL Studio 2019"},
-			{"Studio16", "SDL Studio Next"} //update with the correct version names
+			{"Studio6", "SDL Studio Next"} //update with the correct version names
         };
 
 		private readonly List<StudioVersion> _installedStudioVersions;
