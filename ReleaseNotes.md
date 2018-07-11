@@ -32,3 +32,7 @@
 ### New in 0.7
 
 * Added methods for Segment objects
+
+### New in 0.8
+
+* Add Sdl.Community.LanguagePlatform. Add Studio 2019 version

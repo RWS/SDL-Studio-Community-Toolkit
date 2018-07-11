@@ -65,7 +65,7 @@ Target "CreateCorePackage" (fun _ ->
     CleanDirs [portableDir]
 
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Core.dll")
-    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Core.XML")
+    //CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Core.XML")
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Core.pdb")
     CopyFiles packagingDir ["LICENSE"; "README.md"; "ReleaseNotes.md"]
 
@@ -88,7 +88,7 @@ Target "CreateFileTypePackage" (fun _ ->
     CleanDirs [portableDir]
 
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.FileType.dll")
-    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.FileType.XML")
+    //CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.FileType.XML")
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.FileType.pdb")
     CopyFiles packagingDir ["LICENSE"; "README.md"; "ReleaseNotes.md"]
 
@@ -111,7 +111,7 @@ Target "CreateProjectAutomationPackage" (fun _ ->
     CleanDirs [portableDir]
 
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.ProjectAutomation.dll")
-    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.ProjectAutomation.XML")
+    //CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.ProjectAutomation.XML")
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.ProjectAutomation.pdb")
     CopyFiles packagingDir ["LICENSE"; "README.md"; "ReleaseNotes.md"]
 
@@ -134,7 +134,7 @@ Target "CreateLanguagePlatformPackage" (fun _ ->
     CleanDirs [portableDir]
 
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.LanguagePlatform.dll")
-    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.LanguagePlatform.XML")
+    //CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.LanguagePlatform.XML")
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.LanguagePlatform.pdb")
     CopyFiles packagingDir ["LICENSE"; "README.md"; "ReleaseNotes.md"]
 
@@ -157,7 +157,7 @@ Target "CreateIntegrationPackage" (fun _ ->
     CleanDirs [portableDir]
 
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Integration.dll")
-    CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Integration.XML")
+    //CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Integration.XML")
     CopyFile portableDir (buildDir @@ "Sdl.Community.Toolkit.Integration.pdb")
     CopyFiles packagingDir ["LICENSE"; "README.md"; "ReleaseNotes.md"]
 
