@@ -36,3 +36,7 @@
 ### New in 0.8
 
 * Add Sdl.Community.LanguagePlatform. Add Studio 2019 version
+
+### New in 0.9
+
+* Update Studio 2019 version
