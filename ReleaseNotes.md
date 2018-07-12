@@ -32,3 +32,7 @@
 ### New in 0.7
 
 * Added methods for Segment objects
+
+### New in 0.7.1
+
+* Upgrade Toolkit Helper functions for Studio 2017

@@ -6,8 +6,8 @@ open System
 let authors = ["Sdl Community"]
 
 //project details
-let projectName = "Sdl Studio Community Toolkit"
-let projectDescription="The SDL Studio Community Toolkit is a collection of helper functions. It simplifies and demonstrates common developer tasks building SDL Studio plugins."
+let projectName = "Sdl Studio Community Toolkit upgrade for Studio 2017"
+let projectDescription="The SDL Studio Community Toolkit upgrade for Studio 2017 is a collection of helper functions. It simplifies and demonstrates common developer tasks building SDL Studio plugins."
 let projectSummary = projectDescription
 
 //directories
@@ -72,7 +72,7 @@ Target "CreateCorePackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.Core"
+            Project = "Sdl.Community.Toolkit.Core.Studio2017"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -95,7 +95,7 @@ Target "CreateFileTypePackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.FileType"
+            Project = "Sdl.Community.Toolkit.FileType.Studio2017"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -118,7 +118,7 @@ Target "CreateProjectAutomationPackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.ProjectAutomation"
+            Project = "Sdl.Community.Toolkit.ProjectAutomation.Studio2017"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -141,7 +141,7 @@ Target "CreateLanguagePlatformPackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.LanguagePlatform"
+            Project = "Sdl.Community.Toolkit.LanguagePlatform.Studio2017"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -164,7 +164,7 @@ Target "CreateIntegrationPackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.Integration"
+            Project = "Sdl.Community.Toolkit.Integration.Studio2017"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
