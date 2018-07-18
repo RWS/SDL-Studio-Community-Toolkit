@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sdl.Community.Toolkit.Core.Services
 {
@@ -21,8 +18,10 @@ namespace Sdl.Community.Toolkit.Core.Services
 			{"Studio3", "SDL Studio 2014"},
 			{"Studio4", "SDL Studio 2015"},
 			{"Studio5", "SDL Studio 2017"},
-			{"Studio6", "SDL Studio Next"} //update with correct names
+			{"Studio15", "SDL Studio 2019"},
+			{"Studio16", "SDL Studio Next"} //update with the correct version names
         };
+
 		private readonly List<StudioVersion> _installedStudioVersions;
 
 		public StudioVersionService()
@@ -102,7 +101,6 @@ namespace Sdl.Community.Toolkit.Core.Services
 			};
 
 			return studioVersion;
-
 		}
 	}
 }
