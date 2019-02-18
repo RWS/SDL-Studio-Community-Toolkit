@@ -7,20 +7,26 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.Visitors
 {
 	internal class SegmentVisitor : IMarkupDataVisitor
 	{
-		private bool IgnoreTags { get; }
-		private int TagId { get; set; }
+		private readonly bool _ignoreTags;
 
-		public bool HasRevisions { get; private set; }
-		public Segment Segment { get; }
-		public List<IComment> Comments { get; set; }
+		private readonly Stack<Tag> _tagPairStack;
+
+		private int _anchor;		
 
 		public SegmentVisitor(Segment segment, bool ignoreTags)
 		{
 			Segment = segment;
-			IgnoreTags = ignoreTags;
-			TagId = 0;
+			_ignoreTags = ignoreTags;
+			_anchor = 0;
 			Comments = new List<IComment>();
+			_tagPairStack = new Stack<Tag>();
 		}
+
+		public bool HasRevisions { get; private set; }
+
+		public Segment Segment { get; }
+
+		public List<IComment> Comments { get; }
 
 		private void VisitChilderen(IAbstractMarkupDataContainer container)
 		{
@@ -32,34 +38,37 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.Visitors
 
 		public void VisitTagPair(ITagPair tagPair)
 		{
-
-			TagId++;
+			_anchor++;
 			var tagId = tagPair.StartTagProperties.TagId.Id;
 
-			if (!IgnoreTags)
+			if (!_ignoreTags)
 			{
 				var tag = new Tag(
 					TagType.Start,
 					tagId,
-					TagId,
+					_anchor,
 					0,
 					null,
 					tagPair.StartTagProperties.CanHide);
 
 				Segment?.Add(tag);
+
+				_tagPairStack.Push(tag);
 			}
 
 			VisitChilderen(tagPair);
 
-			if (!IgnoreTags)
+			if (!_ignoreTags)
 			{
+				var currentTag = _tagPairStack.Pop();
+
 				var tag = new Tag(
 					TagType.End,
-					tagId,
-					TagId,
+					currentTag.TagID,
+					currentTag.Anchor,
 					0,
 					null,
-					tagPair.EndTagProperties.CanHide);
+					currentTag.CanHide);
 				Segment?.Add(tag);
 			}
 
@@ -68,12 +77,12 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.Visitors
 		public void VisitPlaceholderTag(IPlaceholderTag placeholderTag)
 		{
 
-			if (IgnoreTags)
+			if (_ignoreTags)
 				return;
 
-			TagId++;
+			_anchor++;
 			var tag = new Tag(
-				TagType.Standalone, placeholderTag.Properties.TagId.Id, TagId);
+				TagType.Standalone, placeholderTag.Properties.TagId.Id, _anchor);
 			if (placeholderTag.Properties.HasTextEquivalent)
 			{
 				tag.Type = TagType.TextPlaceholder;
@@ -114,12 +123,12 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.Visitors
 
 		public void VisitLockedContent(ILockedContent lockedContent)
 		{
-			if (IgnoreTags)
+			if (_ignoreTags)
 				return;
 
-			TagId++;
+			_anchor++;
 			var tag = new Tag(
-				TagType.LockedContent, TagId.ToString(), TagId)
+				TagType.LockedContent, _anchor.ToString(), _anchor)
 			{
 				TextEquivalent = lockedContent.Content.ToString()
 			};
