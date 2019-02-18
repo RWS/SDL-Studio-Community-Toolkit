@@ -80,7 +80,6 @@
     <Compile Include="Processors\Internal\Comparers\RegexSearchResultsComparer.cs" />
     <Compile Include="Processors\Internal\EmbeddedContentConstants.cs" />
     <Compile Include="Processors\FeedbackRemovalProcessor.cs" />
-    <Compile Include="Processors\Models\MatchRule.cs" />
     <Compile Include="Processors\Internal\RegexMatch.cs" />
     <Compile Include="Processors\RegexEmbeddedNativeGenerationProcessor.cs" />
     <Compile Include="Processors\RegexEmbeddedNativeProcessor.cs" />
