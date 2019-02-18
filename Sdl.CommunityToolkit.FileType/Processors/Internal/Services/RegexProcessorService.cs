@@ -4,18 +4,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Sdl.Community.Toolkit.FileType.Processors.API;
-using Sdl.Community.Toolkit.FileType.Processors.Comparers;
-using Sdl.Community.Toolkit.FileType.Processors.Models;
+using Sdl.Community.Toolkit.FileType.Processors.Internal.Comparers;
 using Sdl.FileTypeSupport.Framework.Core.Utilities.Formatting;
 using Sdl.FileTypeSupport.Framework.NativeApi;
 
-namespace Sdl.Community.Toolkit.FileType.Processors.Services
+namespace Sdl.Community.Toolkit.FileType.Processors.Internal.Services
 {
 	internal class RegexProcessorService
 	{
-		internal List<IRegexMatch> ApplyRegexRules(string plainString, List<IMatchRule> matchRules)
+		internal List<RegexMatch> ApplyRegexRules(string plainString, List<IMatchRule> matchRules)
 		{
-			var searchResults = new List<IRegexMatch>();
+			var searchResults = new List<RegexMatch>();
 			var matchedIndexes = new List<int>();
 
 			//iterate over tag pairs first
@@ -99,7 +98,7 @@ namespace Sdl.Community.Toolkit.FileType.Processors.Services
 		}
 
 		private static void ProcessTagPairRules(string plainString, IEnumerable<IMatchRule> matchRules,
-			ICollection<IRegexMatch> searchResults, ICollection<int> matchedIndexes)
+			ICollection<RegexMatch> searchResults, ICollection<int> matchedIndexes)
 		{
 			foreach (var rule in matchRules)
 			{
@@ -132,8 +131,8 @@ namespace Sdl.Community.Toolkit.FileType.Processors.Services
 						if (!matchedIndexes.Contains(completeMatch.Index) && !matchedIndexes.Contains(endIndex))
 						{
 							//have to use index from original match when adding to search results or won't be valid in the document
-							searchResults.Add(CreateRegexMatch(rule, startTagMatch, completeMatch.Index, TagType.TagPairOpening));
-							searchResults.Add(CreateRegexMatch(rule, endTagMatch, endIndex, TagType.TagPairClosing));
+							searchResults.Add(CreateRegexMatch(rule, startTagMatch, completeMatch.Index, RegexMatch.TagType.TagPairOpening));
+							searchResults.Add(CreateRegexMatch(rule, endTagMatch, endIndex, RegexMatch.TagType.TagPairClosing));
 
 							matchedIndexes.Add(completeMatch.Index);
 							matchedIndexes.Add(endIndex);
@@ -146,7 +145,7 @@ namespace Sdl.Community.Toolkit.FileType.Processors.Services
 		}
 
 		private static void ProcessPlaceholderRules(string plainString, List<IMatchRule> matchRules,
-		   ICollection<IRegexMatch> searchResults, ICollection<int> matchedIndexes)
+		   ICollection<RegexMatch> searchResults, ICollection<int> matchedIndexes)
 		{
 			//we need to process placeholders before tag pairs
 			matchRules.Sort(new MatchRulesTypeComparer());
@@ -160,7 +159,7 @@ namespace Sdl.Community.Toolkit.FileType.Processors.Services
 				{
 					if (!matchedIndexes.Contains(placeholderMatch.Index))
 					{
-						searchResults.Add(CreateRegexMatch(rule, placeholderMatch, placeholderMatch.Index, TagType.Placeholder));
+						searchResults.Add(CreateRegexMatch(rule, placeholderMatch, placeholderMatch.Index, RegexMatch.TagType.Placeholder));
 						matchedIndexes.Add(placeholderMatch.Index);
 					}
 
@@ -177,7 +176,7 @@ namespace Sdl.Community.Toolkit.FileType.Processors.Services
 					{
 						if (!matchedIndexes.Contains(endTagMatch.Index))
 						{
-							searchResults.Add(CreateRegexMatch(rule, endTagMatch, endTagMatch.Index, TagType.Placeholder));
+							searchResults.Add(CreateRegexMatch(rule, endTagMatch, endTagMatch.Index, RegexMatch.TagType.Placeholder));
 							matchedIndexes.Add(endTagMatch.Index);
 						}
 
@@ -194,7 +193,7 @@ namespace Sdl.Community.Toolkit.FileType.Processors.Services
 			tagProperties.IsWordStop = rule.IsWordStop;
 		}
 
-		private static IRegexMatch CreateRegexMatch(IMatchRule rule, Capture tagMatch, int index, TagType tagType)
+		private static RegexMatch CreateRegexMatch(IMatchRule rule, Capture tagMatch, int index, RegexMatch.TagType tagType)
 		{
 			var regexMatch = new RegexMatch
 			{

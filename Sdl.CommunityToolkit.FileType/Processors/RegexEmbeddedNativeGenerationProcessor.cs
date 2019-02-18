@@ -1,4 +1,5 @@
-﻿using Sdl.FileTypeSupport.Framework.NativeApi;
+﻿using Sdl.Community.Toolkit.FileType.Processors.Internal;
+using Sdl.FileTypeSupport.Framework.NativeApi;
 
 namespace Sdl.Community.Toolkit.FileType.Processors
 {

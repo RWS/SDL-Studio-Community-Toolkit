@@ -21,13 +21,17 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 		public void StructureTag(IStructureTagProperties tagInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.StructureTag(tagInfo);
+			}
 		}
 
 		public void InlineStartTag(IStartTagProperties tagInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.InlineStartTag(tagInfo);
+			}
 		}
 
 		public void InlineEndTag(IEndTagProperties tagInfo)
@@ -39,13 +43,17 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 		public void InlinePlaceholderTag(IPlaceholderTagProperties tagInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.InlinePlaceholderTag(tagInfo);
+			}
 		}
 
 		public void Text(ITextProperties textInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.Text(textInfo);
+			}
 		}
 
 		public void ChangeContext(IContextProperties newContexts)
@@ -56,25 +64,33 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 		public void CustomInfo(ICustomInfoProperties info)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.CustomInfo(info);
+			}
 		}
 
 		public void LocationMark(LocationMarkerId markerId)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.LocationMark(markerId);
+			}
 		}
 
 		public void LockedContentStart(ILockedContentProperties lockedContentInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.LockedContentStart(lockedContentInfo);
+			}
 		}
 
 		public void LockedContentEnd()
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.LockedContentEnd();
+			}
 		}
 
 		public void RevisionStart(IRevisionProperties revisionInfo)
@@ -85,11 +101,15 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 			{
 				_bufferContent = false;
 				if (revisionInfo.RevisionType == RevisionType.FeedbackDeleted)
+				{
 					_tqaDeletion = true;
+				}
 			}
 
 			if (_bufferContent)
+			{
 				_buffer.RevisionStart(revisionInfo);
+			}
 		}
 
 		public void RevisionEnd()
@@ -106,19 +126,25 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 		public void CommentStart(ICommentProperties commentInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.CommentStart(commentInfo);
+			}
 		}
 
 		public void CommentEnd()
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.CommentEnd();
+			}
 		}
 
 		public void ParagraphComments(ICommentProperties commentInfo)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.ParagraphComments(commentInfo);
+			}
 		}
 
 		public void ParagraphUnitStart(IParagraphUnitProperties properties)
@@ -144,13 +170,17 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 		public void SegmentStart(ISegmentPairProperties properties)
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.SegmentStart(properties);
+			}
 		}
 
 		public void SegmentEnd()
 		{
 			if (!_tqaDeletion)
+			{
 				_buffer.SegmentEnd();
+			}
 		}
 
 		public INativeGenerationContentHandler Output

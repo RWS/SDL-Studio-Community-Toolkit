@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using Sdl.Community.Toolkit.FileType.Processors.API;
-using Sdl.Community.Toolkit.FileType.Processors.Services;
+using Sdl.Community.Toolkit.FileType.Processors.Internal;
+using Sdl.Community.Toolkit.FileType.Processors.Internal.Services;
 using Sdl.Core.Settings;
 using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.FileTypeSupport.Framework.Core.Utilities.NativeApi.Buffer;
@@ -189,13 +190,13 @@ namespace Sdl.Community.Toolkit.FileType.Processors
 
 				switch (match.Type)
 				{
-					case TagType.Placeholder:
+					case RegexMatch.TagType.Placeholder:
 						WritePlaceholderTag(match.Value, match.Rule);
 						break;
-					case TagType.TagPairOpening:
+					case RegexMatch.TagType.TagPairOpening:
 						WriteStartTag(match.Value, match.Rule);
 						break;
-					case TagType.TagPairClosing:
+					case RegexMatch.TagType.TagPairClosing:
 						WriteEndTag(match.Value, match.Rule);
 						break;
 					default:

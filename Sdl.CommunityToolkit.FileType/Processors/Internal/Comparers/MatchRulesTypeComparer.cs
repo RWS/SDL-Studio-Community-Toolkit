@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sdl.Community.Toolkit.FileType.Processors.API;
 
-namespace Sdl.Community.Toolkit.FileType.Processors.Comparers
+namespace Sdl.Community.Toolkit.FileType.Processors.Internal.Comparers
 {
 	internal class MatchRulesTypeComparer : IComparer<IMatchRule>
 	{

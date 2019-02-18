@@ -1,4 +1,4 @@
-﻿namespace Sdl.Community.Toolkit.FileType.Processors
+﻿namespace Sdl.Community.Toolkit.FileType.Processors.Internal
 {
 	internal static class EmbeddedContentConstants
 	{
