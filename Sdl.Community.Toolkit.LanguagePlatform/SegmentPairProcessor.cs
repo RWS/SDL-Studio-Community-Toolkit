@@ -84,14 +84,14 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 				{
 					throw new Exception($"Unable to delete translation memory {tmPath}\r\n" + ex.Message);
 				}
-			}			
+			}
 		}
 
 		private SegmentPairInfo GetSegmentPairInfo(Segment sourceSegment, Segment targetSegment)
 		{
 			if (sourceSegment.Elements.Count == 0)
 			{
-				return null;
+				sourceSegment.Elements.AddRange(targetSegment.Elements);
 			}
 
 			if (targetSegment.Elements.Count == 0)
@@ -158,7 +158,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 
 			return tmPath;
 		}
-		
+
 		private ImportResult AddTranslationUnit(Segment sourceSegment, Segment targetSegment)
 		{
 			if (_temporaryTm == null)
