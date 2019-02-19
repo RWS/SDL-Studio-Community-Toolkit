@@ -40,3 +40,8 @@
 ### New in 0.9
 
 * Update Studio 2019 version
+
+### New in 1.0
+
+* Added regex native content processors to the Sdl.Community.Toolkit.FileType
+* Updated logic in the segment visitor from the Sdl.Community.Toolkit.LanguagePlatform to identify embedded tags
