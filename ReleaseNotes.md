@@ -40,3 +40,7 @@
 ### New in 0.9
 
 * Update Studio 2019 version
+
+### New in 1.0
+
+* Updated Toolkit.Core to correctly identify Multiterm installations; versions 2017 and 2019
