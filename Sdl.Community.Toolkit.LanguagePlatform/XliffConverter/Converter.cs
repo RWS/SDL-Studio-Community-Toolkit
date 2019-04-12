@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
+using System.Net;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -89,7 +89,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			const string xliffTagRegex = "(<.*?>)";
 			xliffString = Regex.Replace(xliffString, xliffTagRegex, "");
 
-			return HttpUtility.HtmlDecode(xliffString);
+			return WebUtility.HtmlDecode(xliffString);
 		}
 	}
 }
