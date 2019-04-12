@@ -20,6 +20,14 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			File = new File(sourceCulture, targetCulture);
 		}
 
+		/// <summary>
+		/// Required constructor for XML serialization
+		/// </summary>
+		private Xliff()
+		{
+			
+		}
+
 		public void AddTranslationUnit(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit translationUnit, string toolId)
 		{
 			File?.Body?.Add(translationUnit?.SourceSegment, translationUnit?.TargetSegment, toolId);

@@ -6,5 +6,13 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 	{
 		[XmlElement("tool")]
 		public Tool[] Tools { get; set; }
+
+		/// <summary>
+		/// Required constructor for XML serialization
+		/// </summary>
+		private Header()
+		{
+			
+		}
 	}
 }

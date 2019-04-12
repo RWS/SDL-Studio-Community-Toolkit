@@ -20,6 +20,14 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			Body = new Body();
 		}
 
+		/// <summary>
+		/// Required constructor for XML serialization
+		/// </summary>
+		public File()
+		{
+			
+		}
+
 		[XmlAttribute("source-language")]
 		public string SourceLanguage
 		{

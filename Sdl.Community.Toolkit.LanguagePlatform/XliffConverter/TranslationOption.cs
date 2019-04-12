@@ -10,6 +10,14 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			Translation = translation;
 		}
 
+		/// <summary>
+		/// Required constructor for XML serialization
+		/// </summary>
+		private TranslationOption()
+		{
+			
+		}
+
 		[XmlAttribute("tool-id")]
 		public string ToolId { get; set; }
 

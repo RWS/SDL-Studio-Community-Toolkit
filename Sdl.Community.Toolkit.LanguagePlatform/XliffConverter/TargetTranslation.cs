@@ -16,6 +16,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			TargetCulture = targetCulture;
 			Text = text;
 		}
+		private TargetTranslation() { }
 
 		[XmlAttribute("xml:lang")]
 		public string TargetLanguage
