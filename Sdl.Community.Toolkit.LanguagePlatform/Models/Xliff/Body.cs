@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Sdl.Community.Toolkit.LanguagePlatform.XliffConverter;
 using Sdl.LanguagePlatform.Core;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
+namespace Sdl.Community.Toolkit.LanguagePlatform.Models.Xliff
 {
 	public class Body
 	{

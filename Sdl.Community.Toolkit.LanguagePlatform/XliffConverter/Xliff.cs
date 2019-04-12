@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
+using Sdl.Community.Toolkit.LanguagePlatform.Models.Xliff;
 using Sdl.LanguagePlatform.Core;
 
 namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter

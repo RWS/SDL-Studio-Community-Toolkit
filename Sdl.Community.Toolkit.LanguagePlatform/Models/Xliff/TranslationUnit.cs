@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
+namespace Sdl.Community.Toolkit.LanguagePlatform.Models.Xliff
 {
 	public class TranslationUnit
 	{

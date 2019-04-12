@@ -1,8 +1,7 @@
 ﻿using System.Globalization;
-using System.Runtime.Remoting.Messaging;
 using System.Xml.Serialization;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
+namespace Sdl.Community.Toolkit.LanguagePlatform.Models.Xliff
 {
 	public class File
 	{

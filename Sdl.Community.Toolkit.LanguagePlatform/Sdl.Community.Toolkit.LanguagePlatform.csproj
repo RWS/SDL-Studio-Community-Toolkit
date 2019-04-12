@@ -70,22 +70,22 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Models\PathInfo.cs" />
-    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\Xliff\Settings.cs" />
     <Compile Include="Models\SegmentPairInfo.cs" />
     <Compile Include="Models\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentParser\Parser.cs" />
     <Compile Include="Visitors\SegmentVisitor.cs" />
     <Compile Include="SegmentPairProcessor.cs" />
-    <Compile Include="XliffConverter\Body.cs" />
+    <Compile Include="Models\Xliff\Body.cs" />
     <Compile Include="XliffConverter\Converter.cs" />
     <Compile Include="XliffConverter\Extensions.cs" />
-    <Compile Include="XliffConverter\File.cs" />
-    <Compile Include="XliffConverter\Header.cs" />
-    <Compile Include="XliffConverter\TargetTranslation.cs" />
-    <Compile Include="XliffConverter\Tool.cs" />
-    <Compile Include="XliffConverter\TranslationOption.cs" />
-    <Compile Include="XliffConverter\TranslationUnit.cs" />
+    <Compile Include="Models\Xliff\File.cs" />
+    <Compile Include="Models\Xliff\Header.cs" />
+    <Compile Include="Models\Xliff\TargetTranslation.cs" />
+    <Compile Include="Models\Xliff\Tool.cs" />
+    <Compile Include="Models\Xliff\TranslationOption.cs" />
+    <Compile Include="Models\Xliff\TranslationUnit.cs" />
     <Compile Include="XliffConverter\Xliff.cs" />
   </ItemGroup>
   <ItemGroup>
