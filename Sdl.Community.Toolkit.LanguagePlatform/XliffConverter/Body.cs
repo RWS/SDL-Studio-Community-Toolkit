@@ -14,6 +14,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 		{
 			TranslationUnits = new List<TranslationUnit>();
 		}
+
 		internal void Add(Segment sourceSegment)
 		{
 			if (sourceSegment == null)
@@ -26,7 +27,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			});
 		}
 
-		internal void Add(Segment sourceSegment, Segment targetSegment, string toolID)
+		internal void Add(Segment sourceSegment, Segment targetSegment, string toolId)
 		{
 			if (sourceSegment == null)
 				throw new NullReferenceException("Source segment cannot be null");
@@ -37,12 +38,11 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			{
 				Id = TranslationUnits.Count,
 				SourceText = sourceSegment.ToXliffString(),
-				TranslationList = new List<TranslationOption>(){
+				TranslationList = new List<TranslationOption>{
 					new TranslationOption(
-						toolID,
+						toolId,
 						new TargetTranslation(targetSegment.Culture, targetSegment.ToXliffString()))
 				}
-
 			});
 		}
 	}
