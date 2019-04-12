@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,16 @@
     <Compile Include="SegmentParser\Parser.cs" />
     <Compile Include="Visitors\SegmentVisitor.cs" />
     <Compile Include="SegmentPairProcessor.cs" />
+    <Compile Include="XliffConverter\Body.cs" />
+    <Compile Include="XliffConverter\Converter.cs" />
+    <Compile Include="XliffConverter\Extensions.cs" />
+    <Compile Include="XliffConverter\File.cs" />
+    <Compile Include="XliffConverter\Header.cs" />
+    <Compile Include="XliffConverter\TargetTranslation.cs" />
+    <Compile Include="XliffConverter\Tool.cs" />
+    <Compile Include="XliffConverter\TranslationOption.cs" />
+    <Compile Include="XliffConverter\TranslationUnit.cs" />
+    <Compile Include="XliffConverter\Xliff.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Sdl.Community.Toolkit.snk" />
