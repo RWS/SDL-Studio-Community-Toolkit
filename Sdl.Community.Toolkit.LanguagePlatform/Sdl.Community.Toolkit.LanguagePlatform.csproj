@@ -73,6 +73,7 @@
     <Compile Include="Models\SegmentPairInfo.cs" />
     <Compile Include="Models\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SegmentParser\Parser.cs" />
     <Compile Include="Visitors\SegmentVisitor.cs" />
     <Compile Include="SegmentPairProcessor.cs" />
   </ItemGroup>
