@@ -49,3 +49,6 @@
 ### New in 1.1
 
 * Updated Toolkit.Core to correctly identify Multiterm installations; versions 2017 and 2019
+### New in 1.2
+
+* Added Xliff generation from Segments in Toolkit.LanguagePlatform
