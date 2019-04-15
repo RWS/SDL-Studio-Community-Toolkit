@@ -36,3 +36,7 @@
 ### New in 0.7.1
 
 * Upgrade Toolkit Helper functions for Studio 2017
+
+### New in 0.7.2
+
+* Added Xliff generation from Segments in Toolkit.LanguagePlatform
