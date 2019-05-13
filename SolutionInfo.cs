@@ -3,14 +3,14 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyProductAttribute("Sdl Studio Community Toolkit")]
-[assembly: AssemblyVersionAttribute("1.2")]
-[assembly: AssemblyFileVersionAttribute("1.2")]
+[assembly: AssemblyVersionAttribute("1.3")]
+[assembly: AssemblyFileVersionAttribute("1.3")]
 [assembly: ComVisibleAttribute(false)]
 namespace System {
     internal static class AssemblyVersionInformation {
         internal const System.String AssemblyProduct = "Sdl Studio Community Toolkit";
-        internal const System.String AssemblyVersion = "1.2";
-        internal const System.String AssemblyFileVersion = "1.2";
+        internal const System.String AssemblyVersion = "1.3";
+        internal const System.String AssemblyFileVersion = "1.3";
         internal const System.Boolean ComVisible = false;
     }
 }
