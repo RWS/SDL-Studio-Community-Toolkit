@@ -69,7 +69,7 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Models\PathInfo.cs" />
-    <Compile Include="Models\Xliff\Settings.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\SegmentPairInfo.cs" />
     <Compile Include="Models\WordCounts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

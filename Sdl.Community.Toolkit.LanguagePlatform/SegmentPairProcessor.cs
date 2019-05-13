@@ -2,14 +2,12 @@
 using System.Globalization;
 using System.IO;
 using Sdl.Community.Toolkit.LanguagePlatform.Models;
-using Sdl.Community.Toolkit.LanguagePlatform.Models.Xliff;
 using Sdl.Community.Toolkit.LanguagePlatform.Visitors;
 using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.LanguagePlatform.Core;
 using Sdl.LanguagePlatform.TranslationMemory;
 using Sdl.LanguagePlatform.TranslationMemoryApi;
 using Action = Sdl.LanguagePlatform.TranslationMemory.Action;
-using File = System.IO.File;
 using WordCounts = Sdl.Community.Toolkit.LanguagePlatform.Models.WordCounts;
 
 namespace Sdl.Community.Toolkit.LanguagePlatform
@@ -168,7 +166,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform
 				throw new Exception($"Unable to locate the temporary TM: {GetTemporaryTmPath()}");
 			}
 
-			var unit = new Sdl.LanguagePlatform.TranslationMemory.TranslationUnit(sourceSegment, targetSegment);
+			var unit = new TranslationUnit(sourceSegment, targetSegment);
 
 			var tuResult = _temporaryTm.LanguageDirection.AddTranslationUnit(
 				unit, GetImportSettings());

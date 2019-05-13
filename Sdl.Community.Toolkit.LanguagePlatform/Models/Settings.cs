@@ -2,7 +2,7 @@
 using Sdl.LanguagePlatform.Core.Tokenization;
 using Sdl.LanguagePlatform.TranslationMemory;
 
-namespace Sdl.Community.Toolkit.LanguagePlatform.Models.Xliff
+namespace Sdl.Community.Toolkit.LanguagePlatform.Models
 {
 	/// <summary>
 	/// Settings
