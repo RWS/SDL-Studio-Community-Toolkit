@@ -245,10 +245,16 @@ namespace Sdl.Community.Toolkit.Integration
         public static bool IsSegmentContentTypes(this DisplayFilterRowInfo rowInfo,
             DisplayFilterSettings settings)
         {
-            var success = rowInfo.IsSegmentContentTypeNumbersOnly(settings)
-                || rowInfo.IsSegmentContentTypeExcludingNumberOnly(settings);
+	        if (settings.SegmentContentTypes?[0] == "NumbersOnly")
+	        {
+		        return rowInfo.IsSegmentContentTypeNumbersOnly(settings);
+	        }
+	        if (settings.SegmentContentTypes?[0] == "ExcludeNumberOnly")
+	        {
+		        return rowInfo.IsSegmentContentTypeExcludingNumberOnly(settings);
+	        }
 
-            return success;
+	        return true;
         }
         public static bool IsSegmentContentTypeNumbersOnly(this DisplayFilterRowInfo rowInfo,
             DisplayFilterSettings settings)
@@ -265,7 +271,6 @@ namespace Sdl.Community.Toolkit.Integration
                     success = rowInfo.SegmentPair.Target.IsValidFloatingNumber();
                 }
             }
-
             return success;
         }
 
@@ -279,14 +284,13 @@ namespace Sdl.Community.Toolkit.Integration
             if (success)
             {
                 success = rowInfo.SegmentPair.Source.IsValidFloatingNumber();
-                if (success)
-                {
-                    success = rowInfo.SegmentPair.Target.IsValidFloatingNumber();
-                }
-                success = !success;
+	            if (success)
+	            {
+		            return false;
+	            }
+	            success = rowInfo.SegmentPair.Target.IsValidFloatingNumber();
             }
-
-            return success;
+            return !success;
         }
 
         public static  bool IsTextFoundInSource(this DisplayFilterRowInfo rowInfo,

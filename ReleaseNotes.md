@@ -57,3 +57,15 @@
 ### New in 1.3
 
 * Removed unused references and reverted structural changes Sdl.Community.Toolkit.LanguagePlatform
+
+### New in 1.4
+
+* Fixed IsValidFloatingNumber method when target text is empty
+
+### New in 1.5
+
+* Fixed IsSegmentContentTypeExcludingNumberOnly method
+
+### New in 1.6
+
+* In IsSegmentContentTypes method check what option user selected and call the suitable method for exclusion
