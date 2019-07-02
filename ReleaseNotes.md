@@ -40,3 +40,7 @@
 ### New in 0.7.2
 
 * Added Xliff generation from Segments in Toolkit.LanguagePlatform
+
+### New in 0.7.3
+
+* In IsSegmentContentTypes method check what option user selected and call the suitable method for exclusion
