@@ -44,3 +44,7 @@
 ### New in 0.7.3
 
 * In IsSegmentContentTypes method check what option user selected and call the suitable method for exclusion
+
+### New in 0.7.4
+
+* Fixed FileType dependency version for Integration project

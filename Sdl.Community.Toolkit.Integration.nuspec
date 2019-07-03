@@ -16,7 +16,7 @@
     <dependencies>
       <group targetFramework="net452">
         <dependency id="morelinq" version="1.4.0"/>
-        <dependency id="Sdl.Community.Toolkit.FileType" version="@build.number@"/>
+        <dependency id="Sdl.Community.Toolkit.FileType.Studio2017" version="@build.number@"/>
       </group>
     </dependencies>
   </metadata>
