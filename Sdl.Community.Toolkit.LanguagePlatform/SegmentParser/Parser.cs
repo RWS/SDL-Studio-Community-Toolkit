@@ -15,14 +15,14 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.SegmentParser
 		private static readonly Regex StartingTag = new Regex(@"<(\d+) (?:x=(\d+) )?id=([^ />]+)>");
         private static readonly Regex EndingTag = new Regex(@"</(\d+)>");
         private static readonly Regex StandaloneTag = new Regex(@"<(\d+) (?:x=(\d+) )?id=([^ />]+)/>");
-        private static readonly Regex LockedContentTag = new Regex(@"<(\d+) (?:x=(\d+) )?id=([^ />]+) text-equiv=""(.*)""/>");
+        private static readonly Regex PlaceholderTag = new Regex(@"<(\d+) (?:x=(\d+) )?id=([^ />]+) text-equiv=""(.*)""/>");
 
-		/// <summary>
-		/// Method used in Unit tests
-		/// </summary>
-		/// <param name="path"></param>
-		/// <returns cref="Segment">Array of Segments</returns>
-		public static Segment[] ParseFile(string path)
+        /// <summary>
+        /// Method used in Unit tests
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns cref="Segment">Array of Segments</returns>
+        public static Segment[] ParseFile(string path)
         {
             if (!File.Exists(path))
             {
@@ -104,12 +104,19 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.SegmentParser
 				return new Tag(TagType.Standalone, match.Groups[3].Value, int.Parse(match.Groups[1].Value),
 					!string.IsNullOrEmpty(match.Groups[2].Value) ? int.Parse(match.Groups[2].Value) : 0, null);
 			}
-			if ((match = LockedContentTag.Match(tag)).Success)
-			{
-				return new Tag(TagType.LockedContent, match.Groups[3].Value, int.Parse(match.Groups[1].Value),
-					!string.IsNullOrEmpty(match.Groups[2].Value) ? int.Parse(match.Groups[2].Value) : 0, match.Groups[4].Value);
-			}
-			return null;
+            if ((match = PlaceholderTag.Match(tag)).Success)
+            {
+	            if (match.Groups[4].Value.Contains("<locked>"))
+	            {
+		            var tagContent = match.Groups[4].Value;
+                    return new Tag(TagType.LockedContent, match.Groups[3].Value, int.Parse(match.Groups[1].Value),
+	                    !string.IsNullOrEmpty(match.Groups[2].Value) ? int.Parse(match.Groups[2].Value) : 0, tagContent);
+                }
+                return new Tag(TagType.TextPlaceholder, match.Groups[3].Value, int.Parse(match.Groups[1].Value),
+                    !string.IsNullOrEmpty(match.Groups[2].Value) ? int.Parse(match.Groups[2].Value) : 0, match.Groups[4].Value);
+            }
+
+            return null;
 		}
 	}
 }
