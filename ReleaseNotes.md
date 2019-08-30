@@ -48,3 +48,7 @@
 ### New in 0.7.4
 
 * Fixed FileType dependency version for Integration project
+
+### New in 0.7.5
+
+* Corrected handling of tags which have the "text-equiv" attribute
