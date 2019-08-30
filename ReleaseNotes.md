@@ -69,3 +69,7 @@
 ### New in 1.6
 
 * In IsSegmentContentTypes method check what option user selected and call the suitable method for exclusion
+
+### New in 1.7
+
+* Corrected handling of tags which have the "text-equiv" attribute
