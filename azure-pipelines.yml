@@ -50,7 +50,7 @@ stages:
           - task: NuGetCommand@2
             inputs:
               command: 'push'
-              packagesToPush: '$(Agent.ReleaseDirectory)/**/*.nupkg;!$(Agent.ReleaseDirectory)/**/*.symbols.nupkg'
+              packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
               nuGetFeedType: 'internal'
               publishVstsFeed: '7b173346-9ceb-4f8d-a243-d8a5e82731d0'
               allowPackageConflicts: true
