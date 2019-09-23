@@ -1,0 +1,75 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- Studio2017
+
+stages:
+- stage: Build
+  displayName: 'Build Studio Community Toolkit'
+  jobs:
+  - job: Do_Build
+    displayName: 'Do build'
+    pool:
+      name: Studio-OX
+      demands:
+      - msbuild
+      - Agent.ComputerName -equals CLJVMOX2017A2
+      - visualstudio
+    steps:
+    - task: NuGetToolInstaller@0
+    - task: CmdLine@2
+      inputs:
+        script: |
+          .\build.cmd BuildAndCreatePackages RELEASE
+      
+          displayName: 'Start building the BuildToolkit'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.SourcesDirectory)\packaging'
+        ArtifactName: 'studio-toolkit-drop'
+        publishLocation: 'Container'
+
+- stage: Publish_Beta
+  displayName: 'Publish beta version on private feed'
+  jobs:
+  - deployment: Publish_Beta
+    displayName: 'Publish on azure internal devops feed'
+    pool:
+      vmImage: 'vs2017-win2016'
+    environment: 'Azure DevOps feed'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - task: NuGetCommand@2
+            inputs:
+              command: 'push'
+              packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
+              nuGetFeedType: 'internal'
+              publishVstsFeed: '7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+              allowPackageConflicts: true
+
+- stage: Publish_Nuget
+  displayName: 'Publish nuget packages'
+  jobs:
+  - deployment: Publish_Nuget
+    displayName: 'Publish on azure external devops feed'
+    pool:
+      vmImage: 'vs2017-win2016'
+    environment: 'Azure DevOps feed'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: NuGetCommand@2
+            inputs:
+              command: 'push'
+              packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
+              nuGetFeedType: 'external'
+              publishFeedCredentials: 'Nuget'
+              allowPackageConflicts: true
