@@ -180,6 +180,15 @@ Target "CreatePackages" DoNothing
 
 Target "BuildAndCreatePackages" DoNothing
 
+"BuildApp"
+    ==> "CreateCorePackage"
+    ==> "CreateFileTypePackage"
+    ==> "CreateProjectAutomationPackage"
+    ==> "CreateLanguagePlatformPackage"
+    ==> "CreateIntegrationPackage"
+    ==> "CreatePackages"
+    ==> "BuildAndCreatePackages"
+
 "CreateCorePackage"
     ==> "CreateFileTypePackage"
     ==> "CreateProjectAutomationPackage"

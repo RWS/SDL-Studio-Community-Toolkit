@@ -18,6 +18,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      .\build.cmd CreatePackages RELEASE
+      .\build.cmd BuildAndCreatePackages RELEASE
       
       displayName: 'Start building the BuildToolkit'
