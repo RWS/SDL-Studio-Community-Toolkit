@@ -15,7 +15,7 @@ pool:
 
 steps:
 - task: NuGetToolInstaller@0
-- task: BuildToolkit@2
+- task: CmdLine@2
   inputs:
     script: |
       .\build.cmd CreatePackages RELEASE
