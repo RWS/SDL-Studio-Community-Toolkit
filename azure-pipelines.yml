@@ -32,7 +32,7 @@ stages:
           .\build.cmd @BuildTask @BuildConfiguration
       
           displayName: 'Start building the BuildToolkit'
-stage: provision_to_production_env
+- stage: provision_to_production_env
   displayName: 'Provision resources to production environment'
   jobs:
   - job: production_provisioning
