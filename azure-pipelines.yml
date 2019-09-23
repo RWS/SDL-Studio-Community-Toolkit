@@ -35,7 +35,7 @@ stages:
 - stage: Publish_Beta
   displayName: 'Publish beta version on private feed'
   jobs:
-  - job: Publish
+  - deploy: Publish_Beta
     displayName: 'Publish on azure devops feed'
     pool:
       vmImage: 'vs2017-win2016'
