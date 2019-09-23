@@ -6,12 +6,6 @@
 trigger:
 - master
 
-variables:
-  BuildTask: 'BuildAndCreatePackages'
-  BuildConfiguration: 'RELEASE'
-
-
-
 stages:
 - stage: Build
   displayName: 'Build Studio Community Toolkit'
@@ -29,19 +23,26 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          .\build.cmd @BuildTask @BuildConfiguration
+          .\build.cmd BuildAndCreatePackages RELEASE
       
           displayName: 'Start building the BuildToolkit'
-- stage: provision_to_production_env
-  displayName: 'Provision resources to production environment'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.SourcesDirectory)\packaging'
+        ArtifactName: 'studio-toolkit-drop'
+        publishLocation: 'Container'
+- stage: Publish_Beta
+  displayName: 'Publish beta version on private feed'
   jobs:
-  - job: production_provisioning
-    displayName: 'Prodduction env provisioning job'
+  - job: Publish
+    displayName: 'Publish on azure devops feed'
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'vs2017-win2016'
     steps:
-    - script: echo provisioning to production environment
-      displayName: 'production environment provisioning'
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        artifact: studio-toolkit-drop
     
     
 
