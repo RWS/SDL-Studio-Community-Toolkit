@@ -35,15 +35,18 @@ stages:
 - stage: Publish_Beta
   displayName: 'Publish beta version on private feed'
   jobs:
-  - deploy: Publish_Beta
+  - deployment: Publish_Beta
     displayName: 'Publish on azure devops feed'
     pool:
       vmImage: 'vs2017-win2016'
     environment: 'Azure DevOps feed'
-    steps:
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        artifact: studio-toolkit-drop
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: studio-toolkit-drop
     
     
 
