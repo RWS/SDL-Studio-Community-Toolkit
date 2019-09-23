@@ -39,6 +39,7 @@ stages:
     displayName: 'Publish on azure devops feed'
     pool:
       vmImage: 'vs2017-win2016'
+    environment: 'Azure DevOps feed'
     steps:
     - task: DownloadPipelineArtifact@2
       inputs:
