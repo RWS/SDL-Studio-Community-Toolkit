@@ -7,13 +7,17 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2017-win2016'
+  name: Studio-OX
+  demands:
+  - msbuild
+  - Agent.ComputerName -equals CLJVMOX2017A2
+  - visualstudio
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: NuGetToolInstaller@0
+- task: BuildToolkit@2
+  inputs:
+    script: |
+      .\build.cmd CreatePackages RELEASE
+      
+      displayName: 'Start building the BuildToolkit'
