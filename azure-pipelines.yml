@@ -6,18 +6,42 @@
 trigger:
 - master
 
-pool:
-  name: Studio-OX
-  demands:
-  - msbuild
-  - Agent.ComputerName -equals CLJVMOX2017A2
-  - visualstudio
+variables:
+  BuildTask: 'BuildAndCreatePackages'
+  BuildConfiguration: 'RELEASE'
 
-steps:
-- task: NuGetToolInstaller@0
-- task: CmdLine@2
-  inputs:
-    script: |
-      .\build.cmd BuildAndCreatePackages RELEASE
+
+
+stages:
+- stage: Build
+  displayName: 'Build Studio Community Toolkit'
+  jobs:
+  - job: Do_Build
+    displayName: 'Do build'
+    pool:
+      name: Studio-OX
+      demands:
+      - msbuild
+      - Agent.ComputerName -equals CLJVMOX2017A2
+      - visualstudio
+    steps:
+    - task: NuGetToolInstaller@0
+    - task: CmdLine@2
+      inputs:
+        script: |
+          .\build.cmd @BuildTask @BuildConfiguration
       
-      displayName: 'Start building the BuildToolkit'
+          displayName: 'Start building the BuildToolkit'
+- stage: deploy
+  displayName: 'Deploy to nuget'
+  jobs:
+  - job: Do_Deploy
+    displayName:'Do deploy'
+    pool:
+        vmimage:'vs2017-win2016'
+    steps:
+    - script: echo publish to nuget
+      displayName: 'Publish to nuget'
+    
+    
+
