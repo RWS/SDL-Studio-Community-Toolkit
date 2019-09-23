@@ -32,16 +32,16 @@ stages:
           .\build.cmd @BuildTask @BuildConfiguration
       
           displayName: 'Start building the BuildToolkit'
-- stage: deploy
-  displayName: 'Deploy to nuget'
+stage: provision_to_production_env
+  displayName: 'Provision resources to production environment'
   jobs:
-  - job: Do_Deploy
-    displayName:'Do deploy'
+  - job: production_provisioning
+    displayName: 'Prodduction env provisioning job'
     pool:
-        vmimage:'vs2017-win2016'
+      vmImage: 'ubuntu-latest'
     steps:
-    - script: echo publish to nuget
-      displayName: 'Publish to nuget'
+    - script: echo provisioning to production environment
+      displayName: 'production environment provisioning'
     
     
 
