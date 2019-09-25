@@ -54,6 +54,29 @@ stages:
               nuGetFeedType: 'internal'
               publishVstsFeed: '7b173346-9ceb-4f8d-a243-d8a5e82731d0'
               allowPackageConflicts: true
-    
+
+- stage: Publish_Nuget
+  displayName: 'Publish nuget packages'
+  jobs:
+  - deployment: Publish_Nuget
+    displayName: 'Publish on azure devops feed'
+    pool:
+      vmImage: 'vs2017-win2016'
+    environment: 'Azure DevOps feed'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+              - task: DownloadPackage@1
+                inputs:
+                  packageType: 'nuget'
+                  feed: '/7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+                  view: '10a0b828-b017-4799-ab82-957ecf6e7eff'
+                  definition: '8fec7b69-08fb-4c41-b1a4-6d4e90fbc321'
+                  version: '1.7.0'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+                  
+
+                  
     
 
