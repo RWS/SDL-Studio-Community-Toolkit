@@ -32,6 +32,7 @@ stages:
         PathtoPublish: '$(Build.SourcesDirectory)\packaging'
         ArtifactName: 'studio-toolkit-drop'
         publishLocation: 'Container'
+
 - stage: Publish_Beta
   displayName: 'Publish beta version on private feed'
   jobs:
@@ -75,6 +76,39 @@ stages:
                   definition: '8fec7b69-08fb-4c41-b1a4-6d4e90fbc321'
                   version: '1.7.0'
                   downloadPath: '$(System.ArtifactsDirectory)'
+              - task: DownloadPackage@1
+                inputs:
+                  packageType: 'nuget'
+                  feed: '/7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+                  view: '10a0b828-b017-4799-ab82-957ecf6e7eff'
+                  definition: 'e73b55df-b742-4f4e-9e21-8a547b37b934'
+                  version: '1.7.0'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+              - task: DownloadPackage@1
+                inputs:
+                  packageType: 'nuget'
+                  feed: '/7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+                  view: '10a0b828-b017-4799-ab82-957ecf6e7eff'
+                  definition: '37e26f4c-4eff-41c1-b60c-951838dcae5a'
+                  version: '1.7.0'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+              - task: DownloadPackage@1
+                inputs:
+                  packageType: 'nuget'
+                  feed: '/7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+                  view: '10a0b828-b017-4799-ab82-957ecf6e7eff'
+                  definition: 'aaa65e9d-8f0d-43fa-85ee-768e5503014c'
+                  version: '1.7.0'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+              - task: DownloadPackage@1
+                inputs:
+                  packageType: 'nuget'
+                  feed: '/7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+                  view: '10a0b828-b017-4799-ab82-957ecf6e7eff'
+                  definition: 'c85feb94-0973-4013-b9a1-d52ba61007cc'
+                  version: '1.7.0'
+                  downloadPath: '$(System.ArtifactsDirectory)'
+
                   
 
                   
