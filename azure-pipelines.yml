@@ -108,9 +108,9 @@ stages:
                   definition: 'c85feb94-0973-4013-b9a1-d52ba61007cc'
                   version: '1.7.0'
                   downloadPath: '$(System.ArtifactsDirectory)'
-
-                  
-
-                  
-    
-
+              - task: NuGetCommand@2
+                inputs:
+                  command: 'push'
+                  packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+                  nuGetFeedType: 'external'
+                  publishFeedCredentials: 'Nuget'
