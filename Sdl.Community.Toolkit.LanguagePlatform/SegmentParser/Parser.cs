@@ -106,7 +106,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.SegmentParser
 			}
             if ((match = PlaceholderTag.Match(tag)).Success)
             {
-	            if (match.Groups[4].Value.Contains("<locked>"))
+	            if (match.Groups[4].Value.Contains("<locked>") || match.Groups[4].Value.Contains(@"translate status=""no"""))
 	            {
 		            var tagContent = match.Groups[4].Value;
                     return new Tag(TagType.LockedContent, match.Groups[3].Value, int.Parse(match.Groups[1].Value),

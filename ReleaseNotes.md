@@ -73,3 +73,7 @@
 ### New in 1.7
 
 * Corrected handling of tags which have the "text-equiv" attribute
+
+### New in 1.8
+
+* Corrected handling of locked content in source
