@@ -52,3 +52,7 @@
 ### New in 0.7.5
 
 * Corrected handling of tags which have the "text-equiv" attribute
+
+### New in 0.7.6
+
+* Corrected handling of locked content in source

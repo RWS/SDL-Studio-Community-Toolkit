@@ -104,11 +104,11 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.SegmentParser
 				return new Tag(TagType.Standalone, match.Groups[3].Value, int.Parse(match.Groups[1].Value),
 					!string.IsNullOrEmpty(match.Groups[2].Value) ? int.Parse(match.Groups[2].Value) : 0, null);
 			}
-			if ((match = PlaceholderTag.Match(tag)).Success)
-			{
-                if (match.Groups[4].Value.Contains("<locked>"))
-                {
-                    var tagContent = match.Groups[4].Value;
+            if ((match = PlaceholderTag.Match(tag)).Success)
+            {
+	            if (match.Groups[4].Value.Contains("<locked>") || match.Groups[4].Value.Contains(@"translate status=""no"""))
+	            {
+		            var tagContent = match.Groups[4].Value;
                     return new Tag(TagType.LockedContent, match.Groups[3].Value, int.Parse(match.Groups[1].Value),
                         !string.IsNullOrEmpty(match.Groups[2].Value) ? int.Parse(match.Groups[2].Value) : 0, tagContent);
                 }
