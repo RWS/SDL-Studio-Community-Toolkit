@@ -40,7 +40,6 @@ stages:
     displayName: 'Publish on azure internal devops feed'
     pool:
       vmImage: 'vs2017-win2016'
-    environment: 'Azure DevOps feed'
     strategy:
       runOnce:
         deploy:
