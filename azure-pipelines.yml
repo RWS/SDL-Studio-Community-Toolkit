@@ -111,6 +111,6 @@ stages:
               - task: NuGetCommand@2
                 inputs:
                   command: 'push'
-                  packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+                  packagesToPush: '$(System.ArtifactsDirectory)/**/*.nupkg;!$(System.ArtifactsDirectory)/**/*.symbols.nupkg'
                   nuGetFeedType: 'external'
                   publishFeedCredentials: 'Nuget'
