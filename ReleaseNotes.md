@@ -77,3 +77,7 @@
 ### New in 1.8
 
 * Corrected handling of locked content in source
+
+### New in 1.8.1
+
+* Testing pipeline
