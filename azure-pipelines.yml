@@ -45,9 +45,7 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: DownloadPipelineArtifact@2
-            inputs:
-              artifact: studio-toolkit-drop
+
           - task: NuGetCommand@2
             inputs:
               command: 'push'
@@ -68,12 +66,10 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: DownloadPipelineArtifact@2
-            inputs:
-              artifact: studio-toolkit-drop
           - task: NuGetCommand@2
             inputs:
               command: 'push'
               packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
               nuGetFeedType: 'external'
               publishFeedCredentials: 'Nuget'
+              allowPackageConflicts: true
