@@ -56,3 +56,7 @@
 ### New in 0.7.6
 
 * Corrected handling of locked content in source
+
+### New in 0.7.7
+
+* Testing pipeline
