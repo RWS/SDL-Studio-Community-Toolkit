@@ -81,3 +81,7 @@
 ### New in 1.8.1
 
 * Testing pipeline
+
+### New in 1.8.2
+
+* Added new Origin Type: nmt 'Neural Machine Translation'
