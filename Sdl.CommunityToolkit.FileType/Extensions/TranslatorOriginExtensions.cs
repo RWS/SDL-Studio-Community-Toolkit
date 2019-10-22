@@ -1,13 +1,9 @@
 ﻿using Sdl.FileTypeSupport.Framework.NativeApi;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sdl.Community.Toolkit.FileType
 {
-    public static class TranslatorOriginExtensions
+	public static class TranslatorOriginExtensions
     {
         public static OriginType GetOriginType(this ITranslationOrigin translationOrigin)
         {
@@ -16,47 +12,58 @@ namespace Sdl.Community.Toolkit.FileType
             {
                 return OriginType.AutoPropagated;
             }
-            else if (string.Compare(translationOrigin.OriginType, "interactive", StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return OriginType.Interactive;
-            }
-            else
-            {
-                if (translationOrigin.MatchPercent >= 100)
-                {
-                    if (string.Compare(translationOrigin.OriginType, "document-match", StringComparison.OrdinalIgnoreCase) == 0)
-                    {
-                        return OriginType.PM;
-                    }
-                    else if (translationOrigin.TextContextMatchLevel == TextContextMatchLevel.SourceAndTarget)
-                    {
-                        return OriginType.CM;
-                    }
-                    else if (string.Compare(translationOrigin.OriginType, "mt", StringComparison.OrdinalIgnoreCase) == 0)
-                    {
-                        return OriginType.AT;
-                    }
-                    else
-                    {
-                        return OriginType.Exact;
-                    }
-                }
-                else if (string.Compare(translationOrigin.OriginType, "mt", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    return OriginType.AT;
-                }
-                else if (translationOrigin.MatchPercent > 0)
-                {
-                    return OriginType.Fuzzy;
-                }
-                else if (string.Compare(translationOrigin.OriginType, "source", StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    return OriginType.Source;
-                }
-            }
-            return OriginType.None;
-        }
 
-        
+	        if (string.Compare(translationOrigin.OriginType, "interactive", StringComparison.OrdinalIgnoreCase) == 0)
+	        {
+		        return OriginType.Interactive;
+	        }
+
+	        if (translationOrigin.MatchPercent >= 100)
+	        {
+		        if (string.Compare(translationOrigin.OriginType, "document-match", StringComparison.OrdinalIgnoreCase) == 0)
+		        {
+			        return OriginType.PM;
+		        }
+
+		        if (translationOrigin.TextContextMatchLevel == TextContextMatchLevel.SourceAndTarget)
+		        {
+			        return OriginType.CM;
+		        }
+
+		        if (string.Compare(translationOrigin.OriginType, "mt", StringComparison.OrdinalIgnoreCase) == 0)
+		        {
+			        return OriginType.AT;
+		        }
+
+		        if (string.Compare(translationOrigin.OriginType, "nmt", StringComparison.OrdinalIgnoreCase) == 0)
+		        {
+			        return OriginType.NMT;
+		        }
+
+		        return OriginType.Exact;
+	        }
+
+	        if (string.Compare(translationOrigin.OriginType, "nmt", StringComparison.OrdinalIgnoreCase) == 0)
+	        {
+		        return OriginType.NMT;
+	        }
+
+	        if (string.Compare(translationOrigin.OriginType, "mt", StringComparison.OrdinalIgnoreCase) == 0)
+	        {
+		        return OriginType.AT;
+	        }
+
+	        if (translationOrigin.MatchPercent > 0)
+	        {
+		        return OriginType.Fuzzy;
+	        }
+
+	        if (string.Compare(translationOrigin.OriginType, "source", StringComparison.OrdinalIgnoreCase) == 0)
+	        {
+		        return OriginType.Source;
+	        }
+
+	        return OriginType.None;
+        }
     }
 }
