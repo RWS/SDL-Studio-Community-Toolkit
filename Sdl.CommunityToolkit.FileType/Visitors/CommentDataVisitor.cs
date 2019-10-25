@@ -1,14 +1,10 @@
 ﻿using Sdl.FileTypeSupport.Framework.BilingualApi;
 using Sdl.FileTypeSupport.Framework.NativeApi;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sdl.Community.Toolkit.Integration.Visitors
 {
-    public class CommentDataVisitor : IMarkupDataVisitor
+	public class CommentDataVisitor : IMarkupDataVisitor
     {
         private List<IComment> _comments;
 
@@ -22,6 +18,7 @@ namespace Sdl.Community.Toolkit.Integration.Visitors
             {
                 _comments.Add(commentProperty);
             }
+
             VisitChildren(commentMarker);
         }
 
@@ -57,8 +54,8 @@ namespace Sdl.Community.Toolkit.Integration.Visitors
 
         public void VisitTagPair(ITagPair tagPair)
         {
-            // Not required for this implementation
-        }
+			VisitChildren(tagPair);
+		}
 
         public void VisitText(IText text)
         {
@@ -68,14 +65,19 @@ namespace Sdl.Community.Toolkit.Integration.Visitors
         public List<IComment> GetComments(ISegment segment)
         {
             _comments.Clear();
+
             VisitChildren(segment);
+
             return _comments;
         }
 
         private void VisitChildren(IAbstractMarkupDataContainer container)
         {
-            if (container == null)
-                return;
+	        if (container == null)
+	        {
+		        return;
+	        }
+
             foreach (var item in container)
             {
                 item.AcceptVisitor(this);
