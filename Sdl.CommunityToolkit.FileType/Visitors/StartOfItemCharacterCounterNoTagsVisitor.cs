@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sdl.FileTypeSupport.Framework.BilingualApi;
+﻿using Sdl.FileTypeSupport.Framework.BilingualApi;
 using static Sdl.FileTypeSupport.Framework.Core.Utilities.BilingualApi.CharacterCountingIterator;
 
 namespace Sdl.Community.Toolkit.FileType.Visitors
 {
-    public class StartOfItemCharacterCounterNoTagsVisitor : ICharacterCountingVisitor
+	public class StartOfItemCharacterCounterNoTagsVisitor : ICharacterCountingVisitor
     {
-        int _count;
-        bool _inLockedContent;
+	    private int _count;
+	    private bool _inLockedContent;
+
         public int Count
         {
-            get
-            {
-                return _count;
-            }
+            get => _count;
 
-            set
-            {
-                _count = value;
-            }
+	        set => _count = value;
         }
 
         public void VisitCommentMarker(ICommentMarker commentMarker)
