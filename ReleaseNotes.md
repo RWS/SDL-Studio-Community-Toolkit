@@ -85,3 +85,7 @@
 ### New in 1.8.2
 
 * Added new Origin Type: nmt 'Neural Machine Translation'
+
+### New in 1.8.3
+
+* Update the Comments data visitor to visit content within tagpair containers
