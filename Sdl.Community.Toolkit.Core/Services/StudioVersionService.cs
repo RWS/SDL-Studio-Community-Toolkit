@@ -14,12 +14,12 @@ namespace Sdl.Community.Toolkit.Core.Services
 
 		private readonly Dictionary<string, string> _supportedStudioVersions = new Dictionary<string, string>
 		{
-			{"Studio2", "SDL Studio 2011"},
-			{"Studio3", "SDL Studio 2014"},
-			{"Studio4", "SDL Studio 2015"},
-			{"Studio5", "SDL Studio 2017"},
-			{"Studio15", "SDL Studio 2019"},
-			{"Studio16", "SDL Studio Next"} //update with the correct version names
+			{"Studio2", "SDL Trados Studio 2011"},
+			{"Studio3", "SDL Trados Studio 2014"},
+			{"Studio4", "SDL Trados Studio 2015"},
+			{"Studio5", "SDL Trados Studio 2017"},
+			{"Studio15", "SDL Trados Studio 2019"},
+			{"Studio16", "SDL Trados Studio Next"} //update with the correct version names
         };
 
 		private readonly List<StudioVersion> _installedStudioVersions;
