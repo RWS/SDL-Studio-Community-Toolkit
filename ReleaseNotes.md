@@ -90,5 +90,7 @@
 
 * Update the Comments data visitor to visit content within tagpair containers
 
+* Updated product name to be consistent to OOS product name SDL Trados Studio.
+
 ### New in 1.8.4
 * Add logic to read/update excel file for MTCodes
