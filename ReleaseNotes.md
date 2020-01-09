@@ -95,3 +95,6 @@
 
 ### New in 1.8.5
 * Add logic to read/update excel file for MTCodes
+
+### New in 1.8.6
+* Update Sdl.Community.Toolkit to recognize external libraries
