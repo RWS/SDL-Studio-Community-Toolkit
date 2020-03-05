@@ -23,7 +23,7 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          '.\Community Wpf Helpers\build.cmd BuildAndCreatePackages RELEASE'
+          .\build.cmd BuildAndCreatePackages RELEASE
       
           displayName: 'Start building the BuildToolkit'
 
