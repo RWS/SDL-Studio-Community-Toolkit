@@ -101,3 +101,6 @@
 
 ### New in 1.8.7
 * Updated Sdl.Community.Toolkit.LanguagePlatform; removed thirdpary dependencies on EPPlus, ExcelDataReader and ExcelDataReader.Data
+
+### New in 1.8.8
+* Removed thirdparty reference EPPlus from Sdl.CommunityToolkit.Integration
