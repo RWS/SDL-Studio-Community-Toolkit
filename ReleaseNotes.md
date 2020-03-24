@@ -60,3 +60,7 @@
 ### New in 0.7.7
 
 * Testing pipeline
+
+### New in 0.7.8
+
+* Expose the short version of Studio (e.g: 2019) in Sdl.Community.Toolkit.Core

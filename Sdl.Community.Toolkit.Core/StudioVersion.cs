@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sdl.Community.Toolkit.Core
 {
@@ -11,6 +7,7 @@ namespace Sdl.Community.Toolkit.Core
         public string Version { get; set; }
         public string PublicVersion { get; set; }
         public string InstallPath { get; set; }
+        public string ShortVersion { get; set; }
         public Version ExecutableVersion { get; set; }
 
         public override string ToString()
