@@ -104,3 +104,6 @@
 
 ### New in 1.8.8
 * Removed thirdparty reference EPPlus from Sdl.CommunityToolkit.Integration
+
+### New in 1.8.9
+* Expose the short version of Studio (e.g: 2019) in Sdl.Community.Toolkit.Core
