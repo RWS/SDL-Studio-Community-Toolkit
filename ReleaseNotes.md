@@ -107,3 +107,6 @@
 
 ### New in 1.8.9
 * Expose the short version of Studio (e.g: 2019) in Sdl.Community.Toolkit.Core
+
+### New in 1.9.0
+* Updated the LanguagePlatform Xliff converter to associate the target culture when reading target segments

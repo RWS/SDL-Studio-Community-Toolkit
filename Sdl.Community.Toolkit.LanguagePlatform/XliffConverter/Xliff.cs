@@ -16,7 +16,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 		[XmlElement("file")]
 		public File File { get; set; }
 
-		public Xliff(CultureInfo sourceCulture, CultureInfo targetCulture, bool encodeUtf16 = false)
+		public Xliff(CultureInfo sourceCulture, CultureInfo targetCulture)
 		{
 			File = new File(sourceCulture, targetCulture);
 		}
@@ -26,7 +26,7 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 		/// </summary>
 		private Xliff()
 		{
-			
+
 		}
 
 		public void AddTranslationUnit(Sdl.LanguagePlatform.TranslationMemory.TranslationUnit translationUnit, string toolId)
@@ -37,7 +37,10 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 		public void AddSourceText(string sourceText)
 		{
 			if (sourceText == null)
+			{
 				throw new NullReferenceException("Source text cannot be null");
+			}
+
 			var seg = new Segment();
 			seg.Add(sourceText);
 			File?.Body?.Add(seg);
@@ -48,9 +51,9 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 			File?.Body?.Add(sourceSegment);
 		}
 
-		public void AddTranslation(Segment sourceSegment, Segment targetSegment, string toolID)
+		public void AddTranslation(Segment sourceSegment, Segment targetSegment, string toolId)
 		{
-			File?.Body?.Add(sourceSegment, targetSegment, toolID);
+			File?.Body?.Add(sourceSegment, targetSegment, toolId);
 		}
 
 		public Segment[] GetTargetSegments()
@@ -60,8 +63,12 @@ namespace Sdl.Community.Toolkit.LanguagePlatform.XliffConverter
 				var option = x.TranslationList?.FirstOrDefault();
 				var segment = option?.Translation?.TargetSegment;
 
-				if (segment == null) return null;
-				segment.Culture = File.SourceCulture;
+				if (segment == null)
+				{
+					return null;
+				}
+
+				segment.Culture = File.TargetCulture ?? File.SourceCulture;
 
 				return segment;
 			}).ToArray();
