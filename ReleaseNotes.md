@@ -113,3 +113,6 @@
 
 ### New in 1.9.1
 * Update the Sdl.Community.Toolkit nugets names to contain .Studio2019 at the end of each package name
+
+### New in 3.0.0
+* Migrate Sdl.Community.Toolkit solution to Studio 2021

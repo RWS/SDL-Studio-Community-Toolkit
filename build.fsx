@@ -72,7 +72,7 @@ Target "CreateCorePackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.Core.Studio2019"
+            Project = "Sdl.Community.Toolkit.Core"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -95,7 +95,7 @@ Target "CreateFileTypePackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.FileType.Studio2019"
+            Project = "Sdl.Community.Toolkit.FileType"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -118,7 +118,7 @@ Target "CreateProjectAutomationPackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.ProjectAutomation.Studio2019"
+            Project = "Sdl.Community.Toolkit.ProjectAutomation"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -141,7 +141,7 @@ Target "CreateLanguagePlatformPackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.LanguagePlatform.Studio2019"
+            Project = "Sdl.Community.Toolkit.LanguagePlatform"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
@@ -164,7 +164,7 @@ Target "CreateIntegrationPackage" (fun _ ->
     NuGet (fun p -> 
         {p with
             Authors = authors
-            Project = "Sdl.Community.Toolkit.Integration.Studio2019"
+            Project = "Sdl.Community.Toolkit.Integration"
             Description = projectDescription
             OutputPath = packagingRoot
             Summary = projectSummary
