@@ -110,3 +110,6 @@
 
 ### New in 1.9.0
 * Updated the LanguagePlatform Xliff converter to associate the target culture when reading target segments
+
+### New in 1.9.1
+* Update the Sdl.Community.Toolkit nugets names to contain .Studio2019 at the end of each package name
