@@ -14,8 +14,8 @@
     <copyright>Copyright Sdl Community 2016</copyright>
     <tags>SDL Studio</tags>
     <dependencies>
-      <group targetFramework="net452">
-        <dependency id="morelinq" version="1.4.0"/>
+      <group targetFramework="net47">
+        <dependency id="morelinq" version="3.0.0"/>
         <dependency id="Sdl.Community.Toolkit.FileType" version="@build.number@"/>
       </group>
     </dependencies>
