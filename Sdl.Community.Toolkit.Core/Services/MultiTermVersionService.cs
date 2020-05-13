@@ -14,7 +14,8 @@ namespace Sdl.Community.Toolkit.Core.Services
 		private readonly Dictionary<string, string> _supportedMultiTermVersions = new Dictionary<string, string>
 		{
 			{"MTCore14", "SDL MultiTerm 2017"},
-			{"MTCore15", "SDL MultiTerm 2019"}
+			{"MTCore15", "SDL MultiTerm 2019"},
+			{"MTCore16", "SDL MultiTerm 2021"}
 		};
 
 		private readonly List<MultiTermVersion> _installedMultiTermVersions;

@@ -18,7 +18,8 @@ namespace Sdl.Community.Toolkit.Core.Services
 			{"Studio4", "SDL Trados Studio 2015"},
 			{"Studio5", "SDL Trados Studio 2017"},
 			{"Studio15", "SDL Trados Studio 2019"},
-			{"Studio16", "SDL Trados Studio Next"} //update with the correct version names
+			{"Studio16", "SDL Trados Studio 2021"},
+			{"Studio17", "SDL Trados Studio Next"} //update with the correct version names
         };
 
 		private readonly Dictionary<string, string> _supportedStudioShortVersions = new Dictionary<string, string>
@@ -28,7 +29,8 @@ namespace Sdl.Community.Toolkit.Core.Services
 			{"Studio4", "2015"},
 			{"Studio5", "2017"},
 			{"Studio15", "2019"},
-			{"Studio16", "Next short version"} //update with the correct version names
+			{"Studio16", "2021"},
+			{"Studio17", "Next short version"} //update with the correct version names
         };
 
 		private readonly List<StudioVersion> _installedStudioVersions;
