@@ -116,3 +116,9 @@
 
 ### New in 3.0.0
 * Migrate Sdl.Community.Toolkit solution to Studio 2021
+
+### New in 3.0.1
+* Migrate Sdl.Community.Toolkit solution to specific Studio 2021 branch
+
+### New in 4.0.0
+* Migrate Sdl.Community.Toolkit solution to Studio 2022 (Beta)
