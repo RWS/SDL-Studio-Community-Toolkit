@@ -25,7 +25,7 @@ stages:
 
     - task: DownloadPipelineArtifact@2
       inputs:
-        buildType: 'specific'
+        source: 'specific'
         project: 'TradosStudio'
         definition: '1258'
         runversion: 'specific'
