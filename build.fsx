@@ -44,7 +44,7 @@ Target "AssemblyInfo" (fun _ ->
 
 let setParams defaults = {
     defaults with
-        ToolsVersion = Some("4.0")
+        ToolsVersion = Some("15.0")
         Targets = ["Build"]
         Properties =
             [
