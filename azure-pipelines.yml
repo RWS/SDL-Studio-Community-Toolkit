@@ -9,13 +9,18 @@ stages:
   - job: Do_Build
     displayName: 'Do build'
     pool:
-      name: Studio-OX
-      demands:
-      - msbuild
-      - Agent.ComputerName -equals CLJVMOX2017A2
-      - visualstudio
+      vmImage: 'windows-latest'
     steps:
     - task: NuGetToolInstaller@0
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'specific'
+        project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
+        definition: '1258'
+        buildVersionToDownload: 'specific'
+        pipelineId: '168665'
+        artifactName: 'binaries'
+        targetPath: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
     - task: CmdLine@2
       inputs:
         script: |
@@ -35,7 +40,7 @@ stages:
   - deployment: Publish_Beta
     displayName: 'Publish on azure internal devops feed'
     pool:
-      vmImage: 'vs2017-win2016'
+      vmImage: 'windows-latest'
     environment: 'Azure DevOps feed'
     strategy:
       runOnce:
