@@ -2,6 +2,10 @@
 trigger:
 - master
 
+variables:
+- name: StudioProductIdentifier
+  value: 'studio17Beta'
+
 stages:
 - stage: Build
   displayName: 'Build Studio Community Toolkit'
@@ -12,6 +16,12 @@ stages:
       vmImage: 'windows-latest'
     steps:
     - task: NuGetToolInstaller@0
+    - task: PowerShell@2
+      displayName: 'set x86path'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'specific'
