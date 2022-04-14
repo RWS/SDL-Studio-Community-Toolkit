@@ -2,6 +2,11 @@
 trigger:
 - master
 
+variables:
+- name: StudioProductIdentifier
+  value: 'studio17Beta'
+#- group: 'SDLPLC Authenticode Credentials'
+
 stages:
 - stage: Build
   displayName: 'Build Studio Community Toolkit'
@@ -9,13 +14,25 @@ stages:
   - job: Do_Build
     displayName: 'Do build'
     pool:
-      name: Studio-OX
-      demands:
-      - msbuild
-      - Agent.ComputerName -equals CLJVMOX2017A2
-      - visualstudio
+      vmImage: 'windows-2019'
     steps:
     - task: NuGetToolInstaller@0
+    - task: PowerShell@2
+      displayName: 'set x86path'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        source: 'specific'
+        project: 'TradosStudio'
+        definition: '1258'
+        runversion: 'specific'
+        RunId: '168665'
+        artifactName: 'binaries'
+        targetPath: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
+      
     - task: CmdLine@2
       inputs:
         script: |
@@ -35,7 +52,7 @@ stages:
   - deployment: Publish_Beta
     displayName: 'Publish on azure internal devops feed'
     pool:
-      vmImage: 'vs2017-win2016'
+      vmImage: 'windows-2019'
     environment: 'Azure DevOps feed'
     strategy:
       runOnce:
@@ -56,7 +73,7 @@ stages:
   - deployment: Publish_Nuget
     displayName: 'Publish on azure external devops feed'
     pool:
-      vmImage: 'vs2017-win2016'
+      vmImage: 'windows-2019'
     environment: 'Azure DevOps feed'
     strategy:
       runOnce:
