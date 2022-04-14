@@ -23,7 +23,7 @@ let buildMode = getBuildParamOrDefault "buildMode" "Release"
 
 MSBuildDefaults <-{
     MSBuildDefaults with 
-        ToolsVersion = Some "16.0"
+        ToolsVersion = Some "15.0"
         Verbosity = Some MSBuildVerbosity.Minimal
         
 }
@@ -44,7 +44,7 @@ Target "AssemblyInfo" (fun _ ->
 
 let setParams defaults = {
     defaults with
-        ToolsVersion = Some("16.0")
+        ToolsVersion = Some("15.0")
         Targets = ["Build"]
         Properties =
             [
