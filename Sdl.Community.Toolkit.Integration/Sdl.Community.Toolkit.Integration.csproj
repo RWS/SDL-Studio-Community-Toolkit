@@ -41,19 +41,15 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="Sdl.Core.Globalization">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.Core.Globalization.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="Sdl.DesktopEditor.EditorApi">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.DesktopEditor.EditorApi.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.FileTypeSupport.Framework.Core">
       <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.ProjectAutomation.Core">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.ProjectAutomation.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi">
