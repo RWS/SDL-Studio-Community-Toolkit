@@ -15,12 +15,13 @@ stages:
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'specific'
-        project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
+        project: 'TradosStudio'
         definition: '1258'
         buildVersionToDownload: 'specific'
         pipelineId: '168665'
         artifactName: 'binaries'
         targetPath: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
+
     - task: CmdLine@2
       inputs:
         script: |
