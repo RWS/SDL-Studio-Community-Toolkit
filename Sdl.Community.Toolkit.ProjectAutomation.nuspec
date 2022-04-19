@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Sdl.Community.Toolkit.ProjectAutomation</id>
-    <version>@build.number@</version>
+    <version>0.0.0.0</version>
     <authors>RWS</authors>
     <owners>RWS</owners>
     <summary>@summary@</summary>
@@ -11,7 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>@description@</description>
     <releaseNotes>@releaseNotes@</releaseNotes>
-    <copyright>Copyright Sdl Community 2016</copyright>
+    <copyright>Copyright Sdl Community 2022</copyright>
     <tags>SDL Studio</tags>
   </metadata>
+  <files>
+	  <file src="Sdl.Community.Toolkit.ProjectAutomation\bin\Release\Sdl.Community.Toolkit.ProjectAutomation.dll" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.ProjectAutomation\bin\Release\Sdl.Community.Toolkit.ProjectAutomation.XML" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.ProjectAutomation\bin\Release\Sdl.Community.Toolkit.ProjectAutomation.pdb" target="lib\net48" />
+  </files>
 </package>

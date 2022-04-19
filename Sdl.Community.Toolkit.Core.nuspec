@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Sdl.Community.Toolkit.Core</id>
-    <version>@build.number@</version>
+    <version>0.0.0.0</version>
     <authors>RWS</authors>
     <owners>RWS</owners>
     <summary>@summary@</summary>
@@ -14,4 +14,9 @@
     <copyright>Copyright Sdl Community 2017</copyright>
     <tags>SDL Studio</tags>
   </metadata>
+  <files>
+	  <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.dll" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.XML" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.pdb" target="lib\net48" />
+  </files>
 </package>

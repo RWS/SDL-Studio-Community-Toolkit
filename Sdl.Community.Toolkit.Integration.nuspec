@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Sdl.Community.Toolkit.Integration</id>
-    <version>@build.number@</version>
+    <version>0.0.0.0</version>
     <authors>RWS</authors>
     <owners>RWS</owners>
     <summary>@summary@</summary>
@@ -20,4 +20,9 @@
       </group>
     </dependencies>
   </metadata>
+  <files>
+	  <file src="Sdl.Community.Toolkit.Integration\bin\Release\Sdl.Community.Toolkit.Integration.dll" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.Integration\bin\Release\Sdl.Community.Toolkit.Integration.XML" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.Integration\bin\Release\Sdl.Community.Toolkit.Integration.pdb" target="lib\net48" />
+  </files>
 </package>
