@@ -15,8 +15,8 @@
     <tags>SDL Studio</tags>
   </metadata>
   <files>
-	  <file src="Sdl.Community.Toolkit.FileType\bin\Release\Sdl.Community.Toolkit.FileType.dll" target="lib\net48" />
-    <file src="Sdl.Community.Toolkit.FileType\bin\Release\Sdl.Community.Toolkit.FileType.XML" target="lib\net48" />
-    <file src="Sdl.Community.Toolkit.FileType\bin\Release\Sdl.Community.Toolkit.FileType.pdb" target="lib\net48" />
+	  <file src="Sdl.CommunityToolkit.FileType\bin\Release\Sdl.Community.Toolkit.FileType.dll" target="lib\net48" />
+    <file src="Sdl.CommunityToolkit.FileType\bin\Release\Sdl.Community.Toolkit.FileType.XML" target="lib\net48" />
+    <file src="Sdl.CommunityToolkit.FileType\bin\Release\Sdl.Community.Toolkit.FileType.pdb" target="lib\net48" />
   </files>
 </package>
