@@ -75,7 +75,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: '$(Build.SourcesDirectory)\packaging'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)\packaging'
         ArtifactName: 'studio-toolkit-drop'
         publishLocation: 'Container'
 
