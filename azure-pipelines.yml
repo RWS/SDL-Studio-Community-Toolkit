@@ -9,6 +9,9 @@ variables:
   value: 'Any CPU'
 - name: buildConfiguration
   value: 'Release'
+- group: StudioCommunityToolkitVersions
+
+name: $(BuildDefinitionName).$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
 #- group: 'SDLPLC Authenticode Credentials'
 
 stages:
@@ -44,11 +47,31 @@ stages:
       inputs:
         restoreSolution: '.\SDL Studio Community Toolkit.sln'
 
+    - task: SDLVersion@2
+      displayName: 'Version Assemblies'
+      inputs:
+        FilenamePattern: 'AssemblyInfo.cs'
+        Field: AssemblyFileVersion
+        VersionNumber: '$(BuildDefinitionName)_$(Version.Major).$(Version.Minor).$(Version.Patch).0'
+
     - task: VSBuild@1
       inputs:
         solution: '$(solution)'
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)' 
+
+    - task: richardfennellBM.BM-VSTS-Versioning-Task.Version-Nuspec-Task.VersionNuspec@2
+      displayName: 'Version Nuspec'
+      inputs:
+        VersionNumber: '$(Version.Major).$(Version.Minor).$(Version.Patch).0'
+        VersionRegex: '\d+\.\d+\.\d+\.\d+'
+
+    - task: NuGetCommand@2
+      displayName: 'NuGet pack'
+      inputs:
+       command: pack
+       packagesToPack: .\*.nuspec
+       packDestination: '$(Build.ArtifactStagingDirectory)\packages'
 
     - task: PublishBuildArtifacts@1
       inputs:
