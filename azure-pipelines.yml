@@ -72,6 +72,8 @@ stages:
        command: pack
        packagesToPack: .\*.nuspec
        packDestination: '$(Build.ArtifactStagingDirectory)\packages'
+       versioningScheme: 'byEnvVar'
+       versionEnvVar: '$(Version.Major).$(Version.Minor).$(Version.Patch).0'
 
     - task: PublishBuildArtifacts@1
       inputs:
