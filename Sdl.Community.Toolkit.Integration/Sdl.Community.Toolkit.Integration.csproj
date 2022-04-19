@@ -41,19 +41,19 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="Sdl.Core.Globalization">
-      <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.Core.Globalization.dll</HintPath>
+      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Beta\Sdl.Core.Globalization.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.DesktopEditor.EditorApi">
-      <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.DesktopEditor.EditorApi.dll</HintPath>
+      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Beta\Sdl.DesktopEditor.EditorApi.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.FileTypeSupport.Framework.Core">
-      <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
+      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Beta\Sdl.FileTypeSupport.Framework.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.ProjectAutomation.Core">
-      <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.ProjectAutomation.Core.dll</HintPath>
+      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Beta\Sdl.ProjectAutomation.Core.dll</HintPath>
     </Reference>
     <Reference Include="Sdl.TranslationStudioAutomation.IntegrationApi">
-      <HintPath>$(ProgramFiles)\Trados\Trados Studio\Studio17Beta\Sdl.TranslationStudioAutomation.IntegrationApi.dll</HintPath>
+      <HintPath>$(MSBuildProgramFiles32)\Trados\Trados Studio\Studio17Beta\Sdl.TranslationStudioAutomation.IntegrationApi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

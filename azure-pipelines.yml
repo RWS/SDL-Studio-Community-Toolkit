@@ -4,7 +4,11 @@ trigger:
 
 variables:
 - name: StudioProductIdentifier
-  value: 'studio17Beta'
+  value: 'Studio17Beta'
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
 #- group: 'SDLPLC Authenticode Credentials'
 
 stages:
@@ -14,7 +18,7 @@ stages:
   - job: Do_Build
     displayName: 'Do build'
     pool:
-      vmImage: 'windows-2019'
+      vmImage: 'windows-latest'
     steps:
     - task: NuGetToolInstaller@0
     - task: PowerShell@2
@@ -23,6 +27,7 @@ stages:
         targetType: 'inline'
         script: |
           Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
+
     - task: DownloadPipelineArtifact@2
       inputs:
         source: 'specific'
@@ -33,12 +38,17 @@ stages:
         artifactName: 'binaries'
         targetPath: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
       
-    - task: CmdLine@2
+    - task: NuGetToolInstaller@0
+
+    - task: NuGetCommand@2
       inputs:
-        script: |
-          .\build.cmd BuildAndCreatePackages RELEASE
-      
-          displayName: 'Start building the BuildToolkit'
+        restoreSolution: '.\SDL Studio Community Toolkit.sln'
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)' 
 
     - task: PublishBuildArtifacts@1
       inputs:
