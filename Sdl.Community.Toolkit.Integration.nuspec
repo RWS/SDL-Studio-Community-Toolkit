@@ -9,6 +9,7 @@
     <projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright Sdl Community 2022</copyright>
+    <description></description>
     <tags>SDL Studio</tags>
     <dependencies>
       <group targetFramework="net48">
