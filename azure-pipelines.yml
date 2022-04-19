@@ -11,7 +11,7 @@ variables:
   value: 'Release'
 - group: StudioCommunityToolkitVersions
 
-name: $(BuildDefinitionName).$(SourceBranchName)_$(Version.MajorMinor).$(Version.Revision)
+name: $(BuildDefinitionName).$(SourceBranchName)_$(Version.Major).$(Version.Minor).$(Version.Patch).$(Build.BuildId)
 #- group: 'SDLPLC Authenticode Credentials'
 
 stages:
@@ -23,7 +23,6 @@ stages:
     pool:
       vmImage: 'windows-latest'
     steps:
-    - task: NuGetToolInstaller@0
     - task: PowerShell@2
       displayName: 'set x86path'
       inputs:
@@ -44,6 +43,7 @@ stages:
     - task: NuGetToolInstaller@0
 
     - task: NuGetCommand@2
+      displayName: "Restore SDL Studio Community Toolkit.sln"
       inputs:
         restoreSolution: '.\SDL Studio Community Toolkit.sln'
 
@@ -56,7 +56,7 @@ stages:
 
     - task: VSBuild@1
       inputs:
-        solution: '$(solution)'
+        solution: '.\SDL Studio Community Toolkit.sln'
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)' 
 
