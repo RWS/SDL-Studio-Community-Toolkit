@@ -1,4 +1,4 @@
-Contributing to SDL Studio Community Toolkit
+Contributing to Trdos Community Toolkit
 =======
 
 A developer should be able to quickly and easily learn to use the API.

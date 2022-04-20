@@ -43,9 +43,9 @@ stages:
     - task: NuGetToolInstaller@0
 
     - task: NuGetCommand@2
-      displayName: "Restore SDL Studio Community Toolkit.sln"
+      displayName: "Restore Trados Community Toolkit.sln"
       inputs:
-        restoreSolution: '.\SDL Studio Community Toolkit.sln'
+        restoreSolution: '.\Trados Community Toolkit.sln'
 
     - task: SDLVersion@2
       displayName: 'Version Assemblies'
@@ -56,7 +56,7 @@ stages:
 
     - task: VSBuild@1
       inputs:
-        solution: '.\SDL Studio Community Toolkit.sln'
+        solution: '.\Trados Community Toolkit.sln'
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)' 
 

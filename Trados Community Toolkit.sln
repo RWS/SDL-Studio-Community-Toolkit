@@ -24,13 +24,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{CBA18C59
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		build.cmd = build.cmd
-		build.fsx = build.fsx
-		Sdl.Community.Toolkit.Core.nuspec = Sdl.Community.Toolkit.Core.nuspec
-		Sdl.Community.Toolkit.FileType.nuspec = Sdl.Community.Toolkit.FileType.nuspec
-		Sdl.Community.Toolkit.Integration.nuspec = Sdl.Community.Toolkit.Integration.nuspec
-		Sdl.Community.Toolkit.LanguagePlatform.nuspec = Sdl.Community.Toolkit.LanguagePlatform.nuspec
-		Sdl.Community.Toolkit.ProjectAutomation.nuspec = Sdl.Community.Toolkit.ProjectAutomation.nuspec
+		azure-pipelines.yml = azure-pipelines.yml
+		Trados.Community.Toolkit.Core.nuspec = Trados.Community.Toolkit.Core.nuspec
+		Trados.Community.Toolkit.FileType.nuspec = Trados.Community.Toolkit.FileType.nuspec
+		Trados.Community.Toolkit.Integration.nuspec = Trados.Community.Toolkit.Integration.nuspec
+		Trados.Community.Toolkit.LanguagePlatform.nuspec = Trados.Community.Toolkit.LanguagePlatform.nuspec
+		Trados.Community.Toolkit.ProjectAutomation.nuspec = Trados.Community.Toolkit.ProjectAutomation.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{E4FF7B58-C357-4E39-AC71-FAAE821F77BC}"

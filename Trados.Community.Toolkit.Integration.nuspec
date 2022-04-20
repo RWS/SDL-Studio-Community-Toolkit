@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+				<id>Trados.Community.Toolkit.Integration</id>
+				<version>$version$</version>
+				<authors>RWS</authors>
+				<owners>RWS</owners>
+				<licenseUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/LICENSE</licenseUrl>
+				<projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
+				<requireLicenseAcceptance>false</requireLicenseAcceptance>
+				<copyright>Copyright Trados AppStore Team 2022</copyright>
+				<description>Migrate Trados.Community.Toolkit solution to Studio 2022 (Beta)</description>
+				<tags>Trados Studio</tags>
+				<dependencies>
+						<group targetFramework="net48">
+								<dependency id="morelinq" version="3.3.2"/>
+								<dependency id="Trados.Community.Toolkit.FileType" version="4.0.1"/>
+						</group>
+				</dependencies>
+		</metadata>
+		<files>
+				<file src="Sdl.Community.Toolkit.Integration\bin\Release\Trados.Community.Toolkit.Integration.dll" target="lib\net48" />
+				<file src="Sdl.Community.Toolkit.Integration\bin\Release\Trados.Community.Toolkit.Integration.XML" target="lib\net48" />
+				<file src="Sdl.Community.Toolkit.Integration\bin\Release\Trados.Community.Toolkit.Integration.pdb" target="lib\net48" />
+		</files>
+</package>

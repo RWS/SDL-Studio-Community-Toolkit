@@ -122,3 +122,6 @@
 
 ### New in 4.0.0
 * Migrate Sdl.Community.Toolkit solution to Studio 2022 (Beta)
+
+### New in 4.0.1
+* Migrate Trados.Community.Toolkit solution to Studio 2022 (Beta)

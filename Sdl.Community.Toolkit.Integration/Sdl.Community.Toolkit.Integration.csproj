@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sdl.Community.Toolkit.Integration</RootNamespace>
-    <AssemblyName>Sdl.Community.Toolkit.Integration</AssemblyName>
+    <AssemblyName>Trados.Community.Toolkit.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PluginDeploymentPath>$(AppData)\Trados\Trados Studio\17\Plugins</PluginDeploymentPath>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Sdl.Community.Toolkit.Integration.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Trados.Community.Toolkit.Integration.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Sdl.Community.Toolkit.Integration.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Trados.Community.Toolkit.Integration.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -77,12 +77,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sdl.CommunityToolkit.FileType\Sdl.Community.Toolkit.FileType.csproj">
-      <Project>{c82f21cf-2754-4558-9f1e-9b8938d725b5}</Project>
-      <Name>Sdl.Community.Toolkit.FileType</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\Sdl.Community.Toolkit.snk">
       <Link>Sdl.Community.Toolkit.snk</Link>
     </None>
@@ -97,6 +91,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sdl.CommunityToolkit.FileType\Sdl.Community.Toolkit.FileType.csproj">
+      <Project>{c82f21cf-2754-4558-9f1e-9b8938d725b5}</Project>
+      <Name>Sdl.Community.Toolkit.FileType</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
