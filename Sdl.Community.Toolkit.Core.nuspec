@@ -5,7 +5,6 @@
     <version>0.0.0.0</version>
     <authors>RWS</authors>
     <owners>RWS</owners>
-    <summary>@summary@</summary>
     <licenseUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,7 +13,7 @@
     <tags>SDL Studio</tags>
   </metadata>
   <files>
-	  <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.dll" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.dll" target="lib\net48" />
     <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.XML" target="lib\net48" />
     <file src="Sdl.Community.Toolkit.Core\bin\Release\Sdl.Community.Toolkit.Core.pdb" target="lib\net48" />
   </files>
