@@ -2,9 +2,9 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 		<metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 				<id>Trados.Community.Toolkit.LanguagePlatform</id>
-				<version>0.0.0.0</version>
-				<authors>RWS</authors>
-				<owners>RWS</owners>
+				<version>$version$</version>
+				<authors>Trados AppStore Team</authors>
+				<owners>Trados AppStore Team</owners>
 				<licenseUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/LICENSE</licenseUrl>
 				<projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
 				<requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -18,8 +18,8 @@
 				</dependencies>
 		</metadata>
 		<files>
-				<file src="Sdl.Community.Toolkit.LanguagePlatform\bin\Release\Trados.Community.Toolkit.LanguagePlatform.dll" target="lib\net48" />
-				<file src="Sdl.Community.Toolkit.LanguagePlatform\bin\Release\Trados.Community.Toolkit.LanguagePlatform.XML" target="lib\net48" />
-				<file src="Sdl.Community.Toolkit.LanguagePlatform\bin\Release\Trados.Community.Toolkit.LanguagePlatform.pdb" target="lib\net48" />
+				<file src="Trados.Community.Toolkit.LanguagePlatform\bin\Release\Trados.Community.Toolkit.LanguagePlatform.dll" target="lib\net48" />
+				<file src="Trados.Community.Toolkit.LanguagePlatform\bin\Release\Trados.Community.Toolkit.LanguagePlatform.XML" target="lib\net48" />
+				<file src="Trados.Community.Toolkit.LanguagePlatform\bin\Release\Trados.Community.Toolkit.LanguagePlatform.pdb" target="lib\net48" />
 		</files>
 </package>

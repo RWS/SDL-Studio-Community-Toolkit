@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.Integration", "Sdl.Community.Toolkit.Integration\Sdl.Community.Toolkit.Integration.csproj", "{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.Integration", "Trados.Community.Toolkit.Integration\Trados.Community.Toolkit.Integration.csproj", "{6D9AA188-83A5-4A04-B8E4-8CCE30A68860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.FileType", "Sdl.CommunityToolkit.FileType\Sdl.Community.Toolkit.FileType.csproj", "{C82F21CF-2754-4558-9F1E-9B8938D725B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.FileType", "Trados.CommunityToolkit.FileType\Trados.Community.Toolkit.FileType.csproj", "{C82F21CF-2754-4558-9F1E-9B8938D725B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.Core", "Sdl.Community.Toolkit.Core\Sdl.Community.Toolkit.Core.csproj", "{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.Core", "Trados.Community.Toolkit.Core\Trados.Community.Toolkit.Core.csproj", "{B2E4D81B-5A04-425F-8E64-695D4DB32BDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.ProjectAutomation", "Sdl.Community.Toolkit.ProjectAutomation\Sdl.Community.Toolkit.ProjectAutomation.csproj", "{8306E5A4-9746-4475-BBE8-A3AD2770C847}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.ProjectAutomation", "Trados.Community.Toolkit.ProjectAutomation\Trados.Community.Toolkit.ProjectAutomation.csproj", "{8306E5A4-9746-4475-BBE8-A3AD2770C847}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{6C48679F-0B35-42F2-9C8C-363638519844}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,7 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		Resources\nuget-packages.png = Resources\nuget-packages.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sdl.Community.Toolkit.LanguagePlatform", "Sdl.Community.Toolkit.LanguagePlatform\Sdl.Community.Toolkit.LanguagePlatform.csproj", "{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trados.Community.Toolkit.LanguagePlatform", "Trados.Community.Toolkit.LanguagePlatform\Trados.Community.Toolkit.LanguagePlatform.csproj", "{68256C9D-B6FC-4B19-AF67-91929FD8FBAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
