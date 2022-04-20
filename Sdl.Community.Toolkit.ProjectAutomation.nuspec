@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <id>@project@</id>
-    <version>@build.number@</version>
-    <authors>@authors@</authors>
-    <owners>@authors@</owners>
-    <summary>@summary@</summary>
+    <id>Sdl.Community.Toolkit.ProjectAutomation</id>
+    <version>$version$</version>
+    <authors>RWS</authors>
+    <owners>RWS</owners>
     <licenseUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>@description@</description>
-    <releaseNotes>@releaseNotes@</releaseNotes>
-    <copyright>Copyright Sdl Community 2016</copyright>
+    <copyright>Copyright Sdl Community 2022</copyright>
+    <description>Migrate Sdl.Community.Toolkit solution to Studio 2022 (Beta)</description>
     <tags>SDL Studio</tags>
   </metadata>
+  <files>
+	  <file src="Sdl.Community.Toolkit.ProjectAutomation\bin\Release\Sdl.Community.Toolkit.ProjectAutomation.dll" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.ProjectAutomation\bin\Release\Sdl.Community.Toolkit.ProjectAutomation.XML" target="lib\net48" />
+    <file src="Sdl.Community.Toolkit.ProjectAutomation\bin\Release\Sdl.Community.Toolkit.ProjectAutomation.pdb" target="lib\net48" />
+  </files>
 </package>
