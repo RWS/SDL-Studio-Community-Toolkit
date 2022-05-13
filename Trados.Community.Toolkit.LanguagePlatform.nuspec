@@ -13,7 +13,7 @@
 				<tags>Trados Studio</tags>
 				<dependencies>
 						<group targetFramework="net48">
-								<dependency id="Trados.Community.Toolkit.Core" version="4.0.4"/>
+								<dependency id="Trados.Community.Toolkit.Core" version="4.0.5"/>
 						</group>
 				</dependencies>
 		</metadata>

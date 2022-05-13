@@ -128,3 +128,6 @@
 
 ### New in 4.0.4
 * Fix retrieval of MultiTerm installed versions
+
+### New in 4.0.5
+* Fix retrieval of MultiTerm installed versions
