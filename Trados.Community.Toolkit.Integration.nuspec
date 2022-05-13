@@ -14,7 +14,7 @@
 				<dependencies>
 						<group targetFramework="net48">
 								<dependency id="morelinq" version="3.3.2"/>
-								<dependency id="Trados.Community.Toolkit.FileType" version="4.0.3"/>
+								<dependency id="Trados.Community.Toolkit.FileType" version="4.0.4"/>
 						</group>
 				</dependencies>
 		</metadata>
