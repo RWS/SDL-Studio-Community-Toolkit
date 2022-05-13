@@ -8,8 +8,8 @@ namespace Trados.Community.Toolkit.Core.Services
 {
 	public class MultiTermVersionService
 	{
-		private const string InstallLocation64Bit = @"SOFTWARE\Wow6432Node\SDL\";
-		private const string InstallLocation32Bit = @"SOFTWARE\SDL\";
+		private const string InstallLocation64Bit = @"SOFTWARE\Wow6432Node";
+		private const string InstallLocation32Bit = @"SOFTWARE";
 
 		private readonly Dictionary<string, string> _supportedMultiTermVersions = new Dictionary<string, string>
 		{
@@ -29,13 +29,17 @@ namespace Trados.Community.Toolkit.Core.Services
 
 		private void Initialize()
 		{
-			var registryPath = Environment.Is64BitOperatingSystem ? InstallLocation64Bit : InstallLocation32Bit;
-			var sdlRegistryKey = Registry.LocalMachine.OpenSubKey(registryPath);
+			var node = Environment.Is64BitOperatingSystem ? InstallLocation64Bit : InstallLocation32Bit;
+			var sdlRegistryKey = Registry.LocalMachine.OpenSubKey(node);
 
 			if (sdlRegistryKey == null) return;
+		    var index = 0;
 			foreach (var supportedMultiTermVersion in _supportedMultiTermVersions)
 			{
-				FindAndCreateMultiTermVersion(registryPath, supportedMultiTermVersion.Key, supportedMultiTermVersion.Value);
+			    var sdlOrTrados = index < 3 ? "SDL" : "Trados";
+			    var registryPath = $@"{node}\{sdlOrTrados}\";
+                FindAndCreateMultiTermVersion(registryPath, supportedMultiTermVersion.Key, supportedMultiTermVersion.Value);
+			    index++;
 			}
 		}
 
