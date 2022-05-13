@@ -126,5 +126,5 @@
 ### New in 4.0.2
 * Migrate Trados.Community.Toolkit solution to Studio 2022 (Beta)
 
-### New in 4.0.3
+### New in 4.0.4
 * Fix retrieval of MultiTerm installed versions
