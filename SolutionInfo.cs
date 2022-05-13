@@ -4,13 +4,13 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyProductAttribute("Trados Community Toolkit")]
 [assembly: AssemblyVersionAttribute("4.0.0")]
-[assembly: AssemblyFileVersionAttribute("4.0.3")]
+[assembly: AssemblyFileVersionAttribute("4.0.4")]
 [assembly: ComVisibleAttribute(false)]
 namespace System {
     internal static class AssemblyVersionInformation {
         internal const System.String AssemblyProduct = "Trados Community Toolkit";
         internal const System.String AssemblyVersion = "4.0.0";
-        internal const System.String AssemblyFileVersion = "4.0.3";
+        internal const System.String AssemblyFileVersion = "4.0.4";
         internal const System.Boolean ComVisible = false;
     }
 }
