@@ -105,7 +105,7 @@ stages:
               command: 'push'
               packagesToPush: '$(Agent.BuildDirectory)/**/*.nupkg;!$(Agent.BuildDirectory)/**/*.symbols.nupkg'
               nuGetFeedType: 'internal'
-              publishVstsFeed: '7b173346-9ceb-4f8d-a243-d8a5e82731d0'
+              publishVstsFeed: 'af66e256-9c46-4fba-ad75-09bf110ec1cc'
               allowPackageConflicts: true
 
 - stage: Publish_Nuget
