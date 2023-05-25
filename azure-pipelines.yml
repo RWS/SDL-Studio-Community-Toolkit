@@ -14,6 +14,12 @@ variables:
 name: $(BuildDefinitionName).$(SourceBranchName)_$(Version.Major).$(Version.Minor).$(Version.Patch).$(Build.BuildId)
 #- group: 'SDLPLC Authenticode Credentials'
 
+resources:
+  pipelines:
+  - pipeline: TradosStudio_Resource
+    project: TradosStudio
+    source: TradosStudio
+
 stages:
 - stage: Build
   displayName: 'Build Studio Community Toolkit'
@@ -30,16 +36,18 @@ stages:
         script: |
           Write-Host "##vso[task.setvariable variable=x86path;]${Env:ProgramFiles(x86)}"
 
+
     - task: DownloadPipelineArtifact@2
+      displayName: 'Download Package artifact'
       inputs:
-        source: 'specific'
-        project: 'TradosStudio'
-        definition: '1258'
-        runversion: 'specific'
-        RunId: '168665'
         artifactName: 'binaries'
-        targetPath: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
-      
+        source: 'specific'
+        project: '$(resources.pipeline.TradosStudio_Resource.projectID)'
+        definition: '$(resources.pipeline.TradosStudio_Resource.pipelineID)'
+        runVersion: specific
+        runId: $(resources.pipeline.TradosStudio_Resource.runID)
+        path: '$(X86PATH)\Trados\Trados Studio\$(StudioProductIdentifier)'
+
     - task: NuGetToolInstaller@0
 
     - task: NuGetCommand@2
