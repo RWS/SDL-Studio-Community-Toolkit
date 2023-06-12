@@ -11,6 +11,10 @@ namespace Trados.Community.Toolkit.Core.Services
 		private const string InstallLocation64Bit = @"SOFTWARE\Wow6432Node\SDL\";
 		private const string InstallLocation32Bit = @"SOFTWARE\SDL";
 
+		// Starting from version 17 (Studio 2022), registry paths have changed.
+		private const string InstallLocation64BitTrados = @"SOFTWARE\Wow6432Node\Trados\";
+		private const string InstallLocation32BitTrados = @"SOFTWARE\Trados";
+
 		private readonly Dictionary<string, string> _supportedStudioVersions = new Dictionary<string, string>
 		{
 			{"Studio2", "SDL Trados Studio 2011"},
@@ -19,8 +23,13 @@ namespace Trados.Community.Toolkit.Core.Services
 			{"Studio5", "SDL Trados Studio 2017"},
 			{"Studio15", "SDL Trados Studio 2019"},
 			{"Studio16", "SDL Trados Studio 2021"},
-			{"Studio17", "SDL Trados Studio 2022"}
-        };
+		};
+
+		private readonly Dictionary<string, string> _supportedTradosStudioVersions = new Dictionary<string, string>
+		{
+			{"Studio17", "Trados Studio 2022"},
+			{"Studio17Beta", "Trados Studio 2022 Beta"}  // for beta testing period
+		};
 
 		private readonly Dictionary<string, string> _supportedStudioShortVersions = new Dictionary<string, string>
 		{
@@ -30,8 +39,9 @@ namespace Trados.Community.Toolkit.Core.Services
 			{"Studio5", "2017"},
 			{"Studio15", "2019"},
 			{"Studio16", "2021"},
-			{"Studio17", "2022"}
-        };
+			{"Studio17", "2022"},
+			{"Studio17Beta", "2022 Beta"}  // for beta testing period
+		};
 
 		private readonly List<StudioVersion> _installedStudioVersions;
 
@@ -69,10 +79,24 @@ namespace Trados.Community.Toolkit.Core.Services
 			var registryPath = Environment.Is64BitOperatingSystem ? InstallLocation64Bit : InstallLocation32Bit;
 			var sdlRegistryKey = Registry.LocalMachine.OpenSubKey(registryPath);
 
-			if (sdlRegistryKey == null) return;
-			foreach (var supportedStudioVersion in _supportedStudioVersions)
+			if (sdlRegistryKey != null)
 			{
-				FindAndCreateStudioVersion(registryPath, supportedStudioVersion.Key, supportedStudioVersion.Value);
+				foreach (var supportedStudioVersion in _supportedStudioVersions)
+				{
+					FindAndCreateStudioVersion(registryPath, supportedStudioVersion.Key, supportedStudioVersion.Value);
+				}
+			}
+
+			// starting from version 17, there is a new registry path.
+			registryPath = Environment.Is64BitOperatingSystem ? InstallLocation64BitTrados : InstallLocation32BitTrados;
+			var tradosRegistryKey = Registry.LocalMachine.OpenSubKey(registryPath);
+
+			if (tradosRegistryKey != null)
+			{
+				foreach (var supportedStudioVersion in _supportedTradosStudioVersions)
+				{
+					FindAndCreateStudioVersion(registryPath, supportedStudioVersion.Key, supportedStudioVersion.Value);
+				}
 			}
 		}
 
