@@ -128,3 +128,6 @@
 
 ### New in 4.0.6
 * Fix retrieval of MultiTerm installed versions
+
+### New in 4.1.1
+* Compatibility with Trados Studio 2022 SR1
