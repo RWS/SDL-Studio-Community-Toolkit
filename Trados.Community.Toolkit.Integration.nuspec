@@ -13,8 +13,8 @@
 				<tags>Trados Studio</tags>
 				<dependencies>
 						<group targetFramework="net48">
-								<dependency id="morelinq" version="3.3.2"/>
-								<dependency id="Trados.Community.Toolkit.FileType" version="5.0.0"/>
+								<dependency id="morelinq" version="4.1.0"/>
+								<dependency id="Trados.Community.Toolkit.FileType" version="6.9.1"/>
 						</group>
 				</dependencies>
 		</metadata>
