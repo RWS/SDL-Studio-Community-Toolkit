@@ -8,13 +8,13 @@
 				<licenseUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit/blob/master/LICENSE</licenseUrl>
 				<projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
 				<requireLicenseAcceptance>false</requireLicenseAcceptance>
-				<copyright>Copyright Trados AppStore Team 2022</copyright>
-				<description>Compatibility with Trados Studio 2022 SR1</description>
+				<copyright>Copyright Trados AppStore Team 2024</copyright>
+				<description>Compatibility with Trados Studio 2024</description>
 				<tags>Trados Studio</tags>
 				<dependencies>
 						<group targetFramework="net48">
 								<dependency id="morelinq" version="3.3.2"/>
-								<dependency id="Trados.Community.Toolkit.FileType" version="4.1.1"/>
+								<dependency id="Trados.Community.Toolkit.FileType" version="5.0.0"/>
 						</group>
 				</dependencies>
 		</metadata>
