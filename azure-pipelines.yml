@@ -4,7 +4,7 @@ trigger:
 
 variables:
 - name: StudioProductIdentifier
-  value: 'Studio17'
+  value: 'Studio18'
 - name: buildPlatform
   value: 'Any CPU'
 - name: buildConfiguration
@@ -68,7 +68,7 @@ stages:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)' 
 
-    - task: richardfennellBM.BM-VSTS-Versioning-Task.Version-Nuspec-Task.VersionNuspec@2
+    - task: VersionNuspec@2
       displayName: 'Version Nuspec'
       inputs:
         VersionNumber: '$(Version.Major).$(Version.Minor).$(Version.Patch).0'
