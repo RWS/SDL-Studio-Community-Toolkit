@@ -16,7 +16,8 @@ namespace Trados.Community.Toolkit.Core.Services
 			{"MTCore14", "SDL MultiTerm 2017"},
 			{"MTCore15", "SDL MultiTerm 2019"},
 			{"MTCore16", "SDL MultiTerm 2021"},
-			{"MTCore17", "SDL MultiTerm 2022"}
+			{"MTCore17", "SDL MultiTerm 2022"},
+			{"MTCore18", "SDL MultiTerm 2024"}
 		};
 
 		private readonly List<MultiTermVersion> _installedMultiTermVersions;
