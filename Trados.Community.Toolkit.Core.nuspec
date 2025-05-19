@@ -9,7 +9,7 @@
 				<projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
 				<requireLicenseAcceptance>false</requireLicenseAcceptance>
 				<copyright>Copyright Trados AppStore Team 2024</copyright>
-				<description>Compatibility with Trados Studio 2024</description>
+				<description>Compatibility with Trados Studio 2024 SR1</description>
 				<tags>Trados Studio</tags>
 		</metadata>
 		<files>

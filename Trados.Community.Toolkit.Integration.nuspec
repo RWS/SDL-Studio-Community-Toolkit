@@ -9,13 +9,13 @@
 				<projectUrl>https://github.com/sdl/SDL-Studio-Community-Toolkit</projectUrl>
 				<requireLicenseAcceptance>false</requireLicenseAcceptance>
 				<copyright>Copyright Trados AppStore Team 2024</copyright>
-				<description>Compatibility with Trados Studio 2024</description>
+				<description>Compatibility with Trados Studio 2024 SR1</description>
 				<tags>Trados Studio</tags>
 				<dependencies>
 						<group targetFramework="net48">
 								<dependency id="morelinq" version="4.1.0"/>
 						    	<dependency id="NuGet.CommandLine" version="6.9.1"/>
-								<dependency id="Trados.Community.Toolkit.FileType" version="5.0.0"/>
+								<dependency id="Trados.Community.Toolkit.FileType" version="5.1.0"/>
 						</group>
 				</dependencies>
 		</metadata>

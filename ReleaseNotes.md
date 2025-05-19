@@ -131,3 +131,6 @@
 
 ### New in 4.1.1
 * Compatibility with Trados Studio 2022 SR1
+
+### New in 5.1.0
+* Compatibility with Trados Studio 2024 SR1

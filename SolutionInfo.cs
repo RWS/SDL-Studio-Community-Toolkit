@@ -3,14 +3,14 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyProductAttribute("Trados Community Toolkit")]
-[assembly: AssemblyVersionAttribute("5.0.0")]
-[assembly: AssemblyFileVersionAttribute("5.0.0")]
+[assembly: AssemblyVersionAttribute("5.1.0")]
+[assembly: AssemblyFileVersionAttribute("5.1.0")]
 [assembly: ComVisibleAttribute(false)]
 namespace System {
     internal static class AssemblyVersionInformation {
         internal const System.String AssemblyProduct = "Trados Community Toolkit";
-        internal const System.String AssemblyVersion = "5.0.0";
-        internal const System.String AssemblyFileVersion = "5.0.0";
+        internal const System.String AssemblyVersion = "5.1.0";
+        internal const System.String AssemblyFileVersion = "5.1.0";
         internal const System.Boolean ComVisible = false;
     }
 }
