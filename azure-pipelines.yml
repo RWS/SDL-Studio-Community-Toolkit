@@ -6,7 +6,7 @@ variables:
 - name: StudioProductIdentifier
   value: 'Studio19'
 - name: buildPlatform
-  value: 'x64'
+  value: 'Any CPU'
 - name: buildConfiguration
   value: 'Release'
 - group: StudioCommunityToolkitVersions
