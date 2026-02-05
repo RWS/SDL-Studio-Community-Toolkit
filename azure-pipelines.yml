@@ -33,16 +33,14 @@ stages:
 
 
     - task: DownloadPipelineArtifact@2
-      displayName: 'Download Package artifact'
       inputs:
         artifactName: 'binaries'
-        source: 'specific'
-        project: '$(resources.pipeline.TradosStudio_Resource.projectID)'
-        definition: '$(resources.pipeline.TradosStudio_Resource.pipelineID)'
-        runVersion: specific
-        runId: $(resources.pipeline.TradosStudio_Resource.runID)
+        buildType: 'specific'
+        project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
+        definition: '1258'
+        buildVersionToDownload: 'specific'
+        pipelineId: 'TradosStudio_master_19.0.0.1059'
         path: '$(ProgramFiles)\Trados\Trados Studio\$(StudioProductIdentifier)'
-
     - task: NuGetToolInstaller@0
 
     - task: NuGetCommand@2
