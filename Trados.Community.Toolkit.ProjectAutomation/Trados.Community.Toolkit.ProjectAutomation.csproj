@@ -30,6 +30,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
+	  <PlatformTarget>x64</PlatformTarget>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Trados.Community.Toolkit.ProjectAutomation.xml</DocumentationFile>
   </PropertyGroup>
