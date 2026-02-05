@@ -87,7 +87,7 @@ stages:
   - deployment: Publish_Beta
     displayName: 'Publish on azure internal devops feed'
     pool:
-      vmImage: 'windows-2022'
+      vmImage: 'windows-latest'
     environment: 'Azure DevOps feed'
     strategy:
       runOnce:
@@ -108,7 +108,7 @@ stages:
   - deployment: Publish_Nuget
     displayName: 'Publish on azure external devops feed'
     pool:
-      vmImage: 'windows-2019'
+      vmImage: 'windows-latest'
     environment: 'Azure DevOps feed'
     strategy:
       runOnce:
