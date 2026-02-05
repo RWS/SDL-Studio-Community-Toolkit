@@ -134,3 +134,6 @@
 
 ### New in 5.1.0
 * Compatibility with Trados Studio 2024 SR1
+* 
+* ### New in 6.0.0
+* Compatibility with Trados Studio 2026 (Beta)
