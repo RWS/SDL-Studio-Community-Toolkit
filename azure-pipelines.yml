@@ -32,16 +32,17 @@ stages:
  
 
 
+    
+    - task: NuGetToolInstaller@0
     - task: DownloadPipelineArtifact@2
       inputs:
-        artifactName: 'binaries'
         buildType: 'specific'
         project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
         definition: '1258'
-        buildVersionToDownload: 'specific'
-        pipelineId: 'TradosStudio_master_19.0.0.1059'
+        buildVersionToDownload: 'latest'
+        allowFailedBuilds: true
+        artifactName: 'binaries'
         path: '$(ProgramFiles)\Trados\Trados Studio\$(StudioProductIdentifier)'
-    - task: NuGetToolInstaller@0
 
     - task: NuGetCommand@2
       displayName: "Restore Trados Community Toolkit.sln"
