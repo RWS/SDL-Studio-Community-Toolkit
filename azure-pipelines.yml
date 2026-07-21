@@ -19,6 +19,7 @@ resources:
   - pipeline: TradosStudio_Resource
     project: TradosStudio
     source: TradosStudio
+    branch: 'refs/heads/Release/19.0.0'
 
 stages:
 - stage: Build
@@ -36,7 +37,7 @@ stages:
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'specific'
-        project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
+        project: 'TradosStudio'
         definition: '1258'
         buildVersionToDownload: 'latestFromBranch'
         branchName: 'refs/heads/Release/19.0.0'
