@@ -4,7 +4,7 @@ trigger:
 
 variables:
 - name: StudioProductIdentifier
-  value: 'Studio19beta'
+  value: 'Studio19'
 - name: buildPlatform
   value: 'Any CPU'
 - name: buildConfiguration
