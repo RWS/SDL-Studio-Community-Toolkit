@@ -17,7 +17,8 @@ namespace Trados.Community.Toolkit.Core.Services
 			{"MTCore15", "SDL MultiTerm 2019"},
 			{"MTCore16", "SDL MultiTerm 2021"},
 			{"MTCore17", "MultiTerm 2022"},
-            {"MTCore18", "MultiTerm 2024"}
+            {"MTCore18", "MultiTerm 2024"},
+            {"MTCore19", "MultiTerm 2026"}
         };
 
 		private readonly List<MultiTermVersion> _installedMultiTermVersions;
@@ -90,8 +91,8 @@ namespace Trados.Community.Toolkit.Core.Services
 			var multiTermVersion = new MultiTermVersion
 			{
 				InstallPath = assembly.Location,
-				Version = installedMultiTermVersion.Version,
-				PublicVersion = installedMultiTermVersion.PublicVersion,
+				Version = installedMultiTermVersion?.Version ?? string.Format("MTCore{0}", currentVersion.Major),
+				PublicVersion = installedMultiTermVersion?.PublicVersion ?? string.Empty,
 				ExecutableVersion = currentVersion
 			};
 

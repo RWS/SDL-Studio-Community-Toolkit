@@ -176,10 +176,15 @@ namespace Trados.Community.Toolkit.LanguagePlatform
 
             var unit = new TranslationUnit(sourceSegment, targetSegment);
 
-            var tuResult = _temporaryTm.LanguageDirection.AddTranslationUnit(
-                unit, GetImportSettings());
+            // AddTranslationUnit(TranslationUnit, ImportSettings) was removed from
+            // ITranslationProviderLanguageDirection in Trados Studio 2026 (API v19);
+            // AddTranslationUnitsMasked is available in both v18 and v19.
+            var tuResults = _temporaryTm.LanguageDirection.AddTranslationUnitsMasked(
+                new[] { unit }, GetImportSettings(), new[] { true });
 
-            if (tuResult.Action == Action.Error)
+            var tuResult = tuResults != null && tuResults.Length > 0 ? tuResults[0] : null;
+
+            if (tuResult == null || tuResult.Action == Action.Error)
             {
                 throw new Exception($"Unable to add TU to the temporary TM: {GetTemporaryTmPath()}");
             }
