@@ -8,8 +8,16 @@ namespace Trados.Community.Toolkit.Core.Services
 {
 	public class StudioVersionService
 	{
-		private const string InstallLocation64Bit = @"SOFTWARE\Wow6432Node\SDL\";
-		private const string InstallLocation32Bit = @"SOFTWARE\SDL";
+		// Registry roots are probed in order; products have moved between them over time:
+		// older releases registered under SDL, newer releases under Trados, and
+		// Studio 2026 (Studio19) is a 64-bit application so it is no longer under Wow6432Node.
+		private static readonly string[] RegistryRoots =
+		{
+			@"SOFTWARE\Trados",
+			@"SOFTWARE\Wow6432Node\Trados",
+			@"SOFTWARE\SDL",
+			@"SOFTWARE\Wow6432Node\SDL"
+		};
 
 		private readonly Dictionary<string, string> _supportedStudioVersions = new Dictionary<string, string>
 		{
@@ -20,7 +28,8 @@ namespace Trados.Community.Toolkit.Core.Services
 			{"Studio15", "SDL Trados Studio 2019"},
 			{"Studio16", "SDL Trados Studio 2021"},
 			{"Studio17", "Trados Studio 2022"},
-            {"Studio18", "Trados Studio 2024"}
+            {"Studio18", "Trados Studio 2024"},
+            {"Studio19", "Trados Studio 2026"}
         };
 
 		private readonly Dictionary<string, string> _supportedStudioShortVersions = new Dictionary<string, string>
@@ -32,7 +41,8 @@ namespace Trados.Community.Toolkit.Core.Services
 			{"Studio15", "2019"},
 			{"Studio16", "2021"},
 			{"Studio17", "2022"},
-            {"Studio18", "2024"}
+            {"Studio18", "2024"},
+            {"Studio19", "2026"}
         };
 
 		private readonly List<StudioVersion> _installedStudioVersions;
@@ -54,6 +64,23 @@ namespace Trados.Community.Toolkit.Core.Services
 			var versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
 			var currentVersion = new Version(versionInfo.FileVersion);
 			var installedStudioVersion = _installedStudioVersions.Find(x => x.ExecutableVersion.Major.Equals(currentVersion.Major));
+			if (installedStudioVersion == null)
+			{
+				// running inside a Studio version that was not found in the registry;
+				// fall back to the version dictionaries keyed by the executable's major version
+				var versionName = string.Format("Studio{0}", currentVersion.Major);
+				_supportedStudioVersions.TryGetValue(versionName, out var publicVersion);
+
+				return new StudioVersion
+				{
+					InstallPath = assembly.Location,
+					Version = versionName,
+					PublicVersion = publicVersion ?? versionName,
+					ShortVersion = GetShortVersion(versionName),
+					ExecutableVersion = currentVersion
+				};
+			}
+
 			var studioVersion = new StudioVersion
 			{
 				InstallPath = assembly.Location,
@@ -68,23 +95,35 @@ namespace Trados.Community.Toolkit.Core.Services
 
 		private void Initialize()
 		{
-			var registryPath = Environment.Is64BitOperatingSystem ? InstallLocation64Bit : InstallLocation32Bit;
-			var sdlRegistryKey = Registry.LocalMachine.OpenSubKey(registryPath);
-
-			if (sdlRegistryKey == null) return;
 			foreach (var supportedStudioVersion in _supportedStudioVersions)
 			{
-				FindAndCreateStudioVersion(registryPath, supportedStudioVersion.Key, supportedStudioVersion.Value);
+				foreach (var registryRoot in RegistryRoots)
+				{
+					if (FindAndCreateStudioVersion(registryRoot, supportedStudioVersion.Key, supportedStudioVersion.Value))
+					{
+						break;
+					}
+				}
 			}
 		}
 
-		private void FindAndCreateStudioVersion(string registryPath, string studioVersion, string studioPublicVersion)
+		private bool FindAndCreateStudioVersion(string registryPath, string studioVersion, string studioPublicVersion)
 		{
 			var studioKey = Registry.LocalMachine.OpenSubKey(string.Format(@"{0}\{1}", registryPath, studioVersion));
-			if (studioKey != null)
+			if (studioKey != null && studioKey.GetValue("InstallLocation") != null)
 			{
-				CreateStudioVersion(studioKey, studioVersion, studioPublicVersion);
+				try
+				{
+					CreateStudioVersion(studioKey, studioVersion, studioPublicVersion);
+					return true;
+				}
+				catch
+				{
+					// stale registry entry, e.g. the install location no longer contains the executable
+				}
 			}
+
+			return false;
 		}
 
 		private void CreateStudioVersion(RegistryKey studioKey, string version, string publicVersion)

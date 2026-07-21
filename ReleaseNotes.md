@@ -137,3 +137,6 @@
 
 ### New in 6.0.0
 * Compatibility with Trados Studio 2026 (Beta)
+
+### New in 6.1.0
+* Compatibility with Trados Studio 2026

@@ -19,10 +19,23 @@ namespace Trados.Community.Toolkit.Integration.Extensions
             var segmentPair = document.ActiveSegmentPair;
             if (segmentPair == null) return null;
             var type = document.GetType();
-            var method = type.GetMethod("GetTargetSegmentContainerNodeById",
-                BindingFlags.NonPublic | BindingFlags.Instance);
 
-            var result = method.Invoke(document, new object[] { segmentPair.Target.Properties.Id.Id });
+            object result;
+            var method = type.GetMethod("GetTargetSegmentContainerNode",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+            if (method != null)
+            {
+                result = method.Invoke(document, new object[] { segmentPair });
+            }
+            else
+            {
+                // older Studio versions exposed this via GetTargetSegmentContainerNodeById
+                method = type.GetMethod("GetTargetSegmentContainerNodeById",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+                if (method == null) return null;
+
+                result = method.Invoke(document, new object[] { segmentPair.Target.Properties.Id.Id });
+            }
 
             var targetSegmentContainer = result as ISegmentContainerNode;
 
