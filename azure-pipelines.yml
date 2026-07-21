@@ -40,7 +40,7 @@ stages:
         project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
         definition: '1258'
         buildVersionToDownload: 'latest'
-        allowFailedBuilds: true
+        allowFailedBuilds: false
         artifactName: 'binaries'
         path: '$(ProgramFiles)\Trados\Trados Studio\$(StudioProductIdentifier)'
 
