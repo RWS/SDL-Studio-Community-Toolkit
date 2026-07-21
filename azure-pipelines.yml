@@ -33,7 +33,7 @@ stages:
     steps:
  
 
-    
+  
     - task: NuGetToolInstaller@0
     - task: DownloadPipelineArtifact@2
       inputs:
