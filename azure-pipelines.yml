@@ -39,7 +39,8 @@ stages:
         buildType: 'specific'
         project: '3d68cc84-2fee-45a5-9a2c-27d1429712fc'
         definition: '1258'
-        buildVersionToDownload: 'latest'
+        buildVersionToDownload: 'latestFromBranch'
+        branchName: 'refs/heads/Release/19.0.0'
         allowFailedBuilds: false
         artifactName: 'binaries'
         path: '$(ProgramFiles)\Trados\Trados Studio\$(StudioProductIdentifier)'
