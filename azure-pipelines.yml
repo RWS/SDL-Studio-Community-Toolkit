@@ -14,6 +14,7 @@ variables:
 name: $(BuildDefinitionName).$(SourceBranchName)_$(Version.Major).$(Version.Minor).$(Version.Patch).$(Build.BuildId)
 #- group: 'SDLPLC Authenticode Credentials'
 
+
 resources:
   pipelines:
   - pipeline: TradosStudio_Resource
